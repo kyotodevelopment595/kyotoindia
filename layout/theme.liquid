@@ -10,6 +10,18 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    {%- comment -%} Critical Resource Preloading {%- endcomment -%}
+    <link rel="preload" href="{{ 'base.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'global.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'jquery.min.js' | asset_url }}" as="script">
+
+    {%- if template.name == 'index' or page.handle == 'home' -%}
+      {%- comment -%} Homepage LCP Preloading for Hero Slideshow {%- endcomment -%}
+      <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Kyoto_banner.png?v=1742013854&width=1500" imagesrcset="https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Kyoto_banner.png?v=1742013854&width=1000 1000w, https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Kyoto_banner.png?v=1742013854&width=1500 1500w, https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Kyoto_banner.png?v=1742013854&width=2000 2000w" imagesizes="100vw">
+      <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Untitled_design_-_2025-07-16T190110.388.png?v=1742013854&width=600" imagesrcset="https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Untitled_design_-_2025-07-16T190110.388.png?v=1742013854&width=400 400w, https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Untitled_design_-_2025-07-16T190110.388.png?v=1742013854&width=600 600w, https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Untitled_design_-_2025-07-16T190110.388.png?v=1742013854&width=800 800w" imagesizes="100vw" media="(max-width: 767px)">
+    {%- endif -%}
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -99,6 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>    
     <script  src="{{ 'jquery-cookie-min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'wow.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'instant-page.js' | asset_url }}" type="module" defer="defer"></script>
 
      
     {{ content_for_header }}   
@@ -504,6 +517,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       };
       }   
       new WOW().init();
+      
+      {%- if settings.preloader_enable -%}
+        window.addEventListener('load', function() {
+          const preloader = document.getElementById('preloader');
+          if (preloader) {
+            preloader.style.transition = 'opacity 0.5s ease';
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+              preloader.style.display = 'none';
+              document.body.classList.remove('preloader-overflow');
+            }, 500);
+          }
+        });
+        // Safety timeout to hide preloader if load event takes too long
+        setTimeout(() => {
+          const preloader = document.getElementById('preloader');
+          if (preloader && preloader.style.display !== 'none') {
+             preloader.style.display = 'none';
+             document.body.classList.remove('preloader-overflow');
+          }
+        }, 3000);
+      {%- endif -%}
     </script>
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>

@@ -208,10 +208,17 @@
       
       <div class="basket-image-wrapper">
         {% if section.settings.basket_image %}
-          {{ section.settings.basket_image | image_url: width: 800 | image_tag: 
-             class: 'basket-image',
-             alt: section.settings.heading,
-             loading: 'lazy' }}
+          {%- assign image = section.settings.basket_image -%}
+          <img
+            srcset="{{ image | image_url: width: 400 }} 400w, {{ image | image_url: width: 600 }} 600w, {{ image | image_url: width: 800 }} 800w, {{ image | image_url: width: 1000 }} 1000w, {{ image | image_url: width: 1200 }} 1200w"
+            src="{{ image | image_url: width: 800 }}"
+            sizes="(max-width: 767px) 100vw, (max-width: 991px) 500px, 600px"
+            alt="{{ section.settings.heading | escape }}"
+            class="basket-image"
+            loading="lazy"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+          >
         {% endif %}
       </div>
     </div>

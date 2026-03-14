@@ -4364,16 +4364,16 @@ input[type=password]:not(:placeholder-shown) {
   }
 /*animation*/
 .slideshow__text.banner__box{overflow:hidden;}
-.shopify-section.slideshow.slidershow slideshow-component .swiper-slide :where(.banner__heading, .banner__sub_heading, .banner__buttons){opacity:0; transition: all 0.3s linear .6s;}
-.shopify-section.slideshow.slidershow.reveal slideshow-component .swiper-slide :where(.banner__heading, .banner__sub_heading, .banner__buttons){opacity:1; transition: all 0.3s linear .6s; }
+.shopify-section.slideshow.slidershow slideshow-component .swiper-slide :where(.banner__heading, .banner__sub_heading, .banner__buttons){opacity:0; transition: all 0.3s linear .1s;}
+.shopify-section.slideshow.slidershow.reveal slideshow-component .swiper-slide :where(.banner__heading, .banner__sub_heading, .banner__buttons){opacity:1; transition: all 0.3s linear .1s; }
 .shopify-section.slideshow.slidershow.reveal slideshow-component .swiper-slide-active :where(.banner__sub_heading) {
-    animation: fadeInLeft var(--anim-time) ease both .2s; 
+    animation: fadeInLeft var(--anim-time) ease both .1s; 
 }
 .shopify-section.slideshow.slidershow.reveal slideshow-component .swiper-slide-active :where(.banner__heading) {
-    animation: fadeInLeft var(--anim-time) ease both .6s; 
+    animation: fadeInLeft var(--anim-time) ease both .3s; 
 }
 .shopify-section.slideshow.slidershow.reveal slideshow-component .swiper-slide-active :where(.banner__buttons) {
-    animation: fadeInLeft var(--anim-time) ease both 1.2s;  
+    animation: fadeInLeft var(--anim-time) ease both .5s;  
 }
 /*reveal*/
 .shopify-section.reveal :where(.title-wrapper-with-link){ animation: fadeInUp1 var(--anim-time) ease both;}

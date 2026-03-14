@@ -244,32 +244,7 @@
       </div>
     </div>
   </section>
-  <script>
-  class verticalBar extends HTMLElement {
-  constructor() {
-    super();
-    this.container = document.querySelector('.enable-vertical-marquee');
-    // Initialize Swiper
-    this.mySwiper = new Swiper(this.container, {
-        effect: "fade",
-        fadeEffect: {
-        crossFade: true
-        },
-         loop: true,
-         navigation: {
-            nextEl: '.vertical-marquee-next',
-            prevEl: '.vertical-marquee-prev',
-         },
-         autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-         },
-         speed: 1000, 
-          });
-  }
-}
-customElements.define('vertical-bar', verticalBar);  
-</script>
+
   <style>
     .social-icons{ display:none;}
     .dt-sc-header-top-bar a{ font-family:var(--font-heading-family); font-size:1.4rem; font-weight:500; }

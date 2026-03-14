@@ -708,7 +708,7 @@ class SlideshowComponent extends SliderComponent {
       spaceBetween: 0,
       loop,
       autoplay,
-      speed: 2000,
+      speed: 800,
       navigation: {
         nextEl: this.slider.querySelector('.swiper-button-next'),
         prevEl: this.slider.querySelector('.swiper-button-prev'),
@@ -936,6 +936,34 @@ class VariantSelects extends HTMLElement {
 }
 
 customElements.define('variant-selects', VariantSelects);
+
+class verticalBar extends HTMLElement {
+  constructor() {
+    super();
+    this.container = this.querySelector('.enable-vertical-marquee');
+    if (!this.container) return;
+    
+    // Initialize Swiper
+    this.mySwiper = new Swiper(this.container, {
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      navigation: {
+        nextEl: '.vertical-marquee-next',
+        prevEl: '.vertical-marquee-prev',
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      speed: 1000, 
+    });
+  }
+}
+customElements.define('vertical-bar', verticalBar);
+
 
 class VariantRadios extends VariantSelects {
   constructor() {
