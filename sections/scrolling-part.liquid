@@ -1,0 +1,175 @@
+<style>
+  .scroll-container {
+    position: relative;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .scroll-box {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+  .scroll-box::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari */
+  }
+
+  .split-box {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--box-bg-color, #0f172a);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+  }
+
+  .left-content {
+    padding-left:6rem;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .right-content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left-content h2 {
+    color: black;
+    font-size: 42px;
+    margin-bottom: -10px;
+  }
+
+  .left-content p {
+    color: black;
+    font-size: 24px;
+  }
+
+  .left-content a {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .left-content a:hover {
+    background-color: #2563eb;
+  }
+
+  .right-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .split-box {
+      flex-direction: column;
+      text-align: center;
+    }
+    .left-content, .right-content {
+      width: 100%;
+      height: auto;
+    }
+    .left-content a {
+      margin-top: 20px;
+    }
+  }
+</style>
+
+<div class="scroll-container">
+  <div class="scroll-box">
+    {% for block in section.blocks %}
+      <div class="split-box" style="--box-bg-color: {{ block.settings.bg_color }};">
+        <!-- Left Side: Text Content -->
+        <div class="left-content">
+          <h2>{{ block.settings.heading }}</h2>
+          <p>{{ block.settings.description }}</p>
+          <a href="{{ block.settings.link }}">View Collection</a>
+        </div>
+
+        <!-- Right Side: Image -->
+        <div class="right-content">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | img_url: '1000x1000' }}" alt="Feature Image">
+          {% else %}
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrollable Sticky Boxes",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "box",
+      "name": "Box Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "This is a sticky card slide title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (200x200)"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#0f172a"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrollable Sticky Boxes",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "box"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

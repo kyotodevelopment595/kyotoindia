@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "40206b70-8172-4b18-96ab-2648dc91b5d7": {
+      "type": "breadcrumb",
+      "disabled": true,
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "use_breadcrumb_title": true,
+        "breadcrumb_style": "center",
+        "image_overlay_opacity": 0,
+        "color_scheme": "background-1",
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "custom_class_name": "",
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "adapt",
+        "post_limit": 6,
+        "show_date": true,
+        "show_author": true,
+        "show_excerpts": true,
+        "enable_comments": true,
+        "show_articles": true,
+        "show_button": true,
+        "side_show_excerpts": true,
+        "article_title": "Recent Post",
+        "limit": 3,
+        "show_tags": true,
+        "tags_title": "Tags",
+        "show_carousel": false,
+        "carousel_title": "Hot Deals",
+        "carousel": "rattles",
+        "carousel_limit": 2,
+        "enable_quick_add": true,
+        "sidebar_settings": "sidebar-left",
+        "show_social": true,
+        "show_promo": true,
+        "sidebar_title": "",
+        "sidebar_link_text": "View collection",
+        "sidebar_link": "shopify://collections",
+        "show_menu": true,
+        "menu_title": "Category",
+        "linklist": "",
+        "show_collection": false,
+        "collection_title": "Product listing",
+        "collection": "rattles",
+        "collection_limit": 3,
+        "padding_top": 100,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "40206b70-8172-4b18-96ab-2648dc91b5d7",
+    "main"
+  ]
+}

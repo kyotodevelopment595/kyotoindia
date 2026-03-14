@@ -1,0 +1,326 @@
+{% schema %}
+{
+  "name": "Scroll Collections",
+  "settings": [
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#4b0082"
+    },
+    {
+      "type": "range",
+      "id": "circle_size",
+      "min": 100,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Circle Size",
+      "default": 200
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Collections"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Browse our most popular collections"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop All"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image"
+        },
+        {
+          "type": "url",
+          "id": "custom_link",
+          "label": "Custom Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scroll Collections",
+      "blocks": [
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="horizontal-scroll-section">
+  <div class="curved-border top"></div>
+  <div class="scroll-container">
+    {% for block in section.blocks %}
+      {% assign collection = collections[block.settings.collection] %}
+      {% if collection != blank or block.settings.image != blank %}
+        <div class="collection-item" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.custom_link | default: collection.url }}" class="collection-link">
+            <div class="circle" >
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: section.settings.circle_size | image_tag: loading: 'lazy', class: 'circle-image' }}
+              {% elsif collection.image != blank %}
+                {{ collection.image | image_url: width: section.settings.circle_size | image_tag: loading: 'lazy', class: 'circle-image' }}
+              {% endif %}
+            </div>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="curved-border bottom"></div>
+</section>
+
+<!-- Added Section for Text and Button below the curved border -->
+<div class="content-section">
+  <h1 class="content-heading">{{ section.settings.heading | default: "Backpacks" }}</h1>
+  <p class="content-subtitle">{{ section.settings.subtitle | default: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s" }}</p>
+  <a href="{{ section.settings.button_link | default: 'https://kyotoindia.in/pages/backpacks' }}" class="content-button">
+    <button>{{ section.settings.button_text | default: "Shop Now" }}</button>
+  </a>
+</div>
+
+<style>
+  .horizontal-scroll-section {
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    background: white;
+  }
+
+  /* Curved Borders */
+  .curved-border {
+    position: absolute;
+    width: 100%;
+    height: 180px; /* Increase height to make the curve more pronounced */
+    background: transparent;
+    border-radius: 100% / 100%;
+  }
+
+  /* Positioning */
+  .curved-border.top {
+    top: -130px; /* Move up to create the outer curve */
+    border-bottom: 4px solid #ebebeb;
+    border-top: none;
+  }
+
+  .curved-border.bottom {
+    bottom: -130px; /* Move down to create the outer curve */
+    border-top: 4px solid #ebebeb;
+    border-bottom: none;
+  }
+  
+  .scroll-container {
+    /* gap: 14rem; */
+    display: flex;
+    flex-direction: row;
+    width: 300vw; /* Adjust dynamically */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 0;
+    position: relative
+  }
+
+  .collection-item {
+    margin:0 15rem;
+    width: 20vw; /* Reduced width to allow adjacent items to be visible */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0; /* Prevent items from shrinking */
+  }
+
+  .collection-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .circle {
+    width: 250px; /* Reduced from 300px */
+    height: 200px; /* Reduced from 230px */
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .circle:hover {
+    transform: scale(1.1);
+  }
+
+  .circle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Content Section Styling */
+  .content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* padding: 2rem 1rem;
+    margin-top: 30px; */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content-heading {
+    font-size: 6rem;
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+
+  .content-subtitle {
+    width:60%;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .content-button button {
+    margin-top: 2rem;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 1rem 5rem;
+    font-size: 3rem;
+    /* font-weight: 600; */
+    cursor: pointer;
+    border-radius: 1rem;
+    transition: background-color 0.3s;
+  }
+
+  .content-button button:hover {
+    background-color: red;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .circle {
+      width: calc({{ section.settings.circle_size }}px * 0.6); /* Reduced from 0.7 */
+      height: calc({{ section.settings.circle_size }}px * 0.6); /* Reduced from 0.7 */
+    }
+    
+    .collection-item {
+      width: 70vw; /* Adjust for mobile */
+    }
+    
+    .content-heading {
+      font-size: 1.75rem;
+    }
+    
+    .content-subtitle {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".scroll-container");
+  const sections = document.querySelectorAll(".collection-item");
+  let currentIndex = 0;
+  let isScrolling = false;
+
+  // Calculate container width based on number of items
+  function updateContainerWidth() {
+    const itemCount = sections.length;
+    const itemWidth = 50; // 60vw per item
+    container.style.width = `${itemWidth * itemCount}vw`;
+  }
+  
+  updateContainerWidth();
+
+  // Center the current item with partial visibility of adjacent items
+  function scrollToIndex(index) {
+    if (index >= 0 && index < sections.length) {
+      // Calculate position to center current item and show part of adjacent items
+      // The 20 value determines how much of the adjacent items will be visible
+      const offset = index * 60 - (100 - 60) / 2;
+      container.style.transform = `translateX(-${offset}vw)`;
+      currentIndex = index;
+      isScrolling = true;
+      setTimeout(() => (isScrolling = false), 800);
+    }
+  }
+
+  // Initial positioning to show first item with partially visible second item
+  scrollToIndex(0);
+
+  window.addEventListener("wheel", function (event) {
+    if (isScrolling) return;
+    if (event.deltaY > 0 && currentIndex < sections.length - 1) {
+      scrollToIndex(currentIndex + 1);
+    } else if (event.deltaY < 0 && currentIndex > 0) {
+      scrollToIndex(currentIndex - 1);
+    }
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  container.addEventListener("touchstart", function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  container.addEventListener("touchend", function (e) {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX < touchStartX - 50 && currentIndex < sections.length - 1) {
+      scrollToIndex(currentIndex + 1);
+    } else if (touchEndX > touchStartX + 50 && currentIndex > 0) {
+      scrollToIndex(currentIndex - 1);
+    }
+  });
+
+  window.addEventListener("resize", function () {
+    container.style.transition = "none";
+    updateContainerWidth();
+    scrollToIndex(currentIndex);
+    setTimeout(() => {
+      container.style.transition = "transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)";
+    }, 50);
+  });
+});
+</script>

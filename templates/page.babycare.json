@@ -1,0 +1,242 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "slideshow_CKhHYp": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_aaeFqT": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-03-11T221527.744.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-03-11T174459.388.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_MgmL3G": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-03-11T221413.869_da312749-a664-4580-a193-48ddac1d5ecb.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-03-11T174521.784.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_kCFfq7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-03-11T221553.603.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-03-11T174541.138.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_aaeFqT",
+        "slide_MgmL3G",
+        "slide_kCFfq7"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "slider_image_height": 800,
+        "slider_image_height_laptop": 800,
+        "slider_image_height_tab": 500,
+        "slider_image_height_mobile": 400,
+        "swiper_pagination": false,
+        "swiper_navigation": true,
+        "auto_play": 4,
+        "slider_effect": "slide",
+        "show_text_below": false,
+        "custom_class_name": ""
+      }
+    },
+    "featured_collection_pRp4PK": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "title": "https://cdn.shopify.com/s/files/1/0924/0677/6122/files/our_baby_care_product-21-21.png?v=1740742782",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "collection": "babycare",
+        "products_to_show": 12,
+        "columns_desktop": 3,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_new_tag": false,
+        "show_rating": false,
+        "enable_deal_banner": false,
+        "deal_banner_heading": "",
+        "deal_banner_text": "",
+        "deal_end_date": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class_name": "Default",
+        "swiper_enable": false,
+        "desktop_column": 3,
+        "laptop_column": 3,
+        "tablet_column": 3,
+        "mobile_column": 1,
+        "centered_slide": false,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 0,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1"
+      }
+    },
+    "product_tab_6Cb8DY": {
+      "type": "product-tab",
+      "blocks": {
+        "tab_399ndF": {
+          "type": "tab",
+          "settings": {
+            "collection": "babymats",
+            "title": "Baby Mat",
+            "tab_title": "",
+            "tab_heading_size": "h1",
+            "tab_description": ""
+          }
+        },
+        "tab_YKAML8": {
+          "type": "tab",
+          "settings": {
+            "collection": "teethers",
+            "title": "Teethers & Soothers",
+            "tab_title": "",
+            "tab_heading_size": "h0",
+            "tab_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_399ndF",
+        "tab_YKAML8"
+      ],
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "title": "https://cdn.shopify.com/s/files/1/0924/0677/6122/files/our_baby_care_product-21-21.png?v=1740742782",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "color_scheme": "background-1",
+        "products_to_show": 100,
+        "products_per_row": 4,
+        "enable_slider": false,
+        "enable_dotts": false,
+        "enable_arrows": false,
+        "enable_tab_title": true,
+        "enable_tilte_icon": false,
+        "enable_tab_count": false,
+        "enable_collection_icon": false,
+        "show_rating": false,
+        "show_view_all": false,
+        "tab_alignment": "center",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "layout": "none",
+        "image_block_heading": "Main Heading",
+        "image_block_sub_heading": "Sub Heading",
+        "image_block_description": "",
+        "image_block_button_text": "View More",
+        "image_block_button_link": "",
+        "image_block_horizontal_position": "left",
+        "image_block_vertical_position": "vertical_top",
+        "padding_top": 35,
+        "padding_bottom": 35,
+        "custom_class_name": ""
+      }
+    },
+    "floating_design_Xn6UMz": {
+      "type": "floating-design",
+      "settings": {
+        "heading_line1": "Your",
+        "heading_line2": "Simpler",
+        "heading_line3": "Life Starts",
+        "heading_line4": "Here",
+        "circle_text": "",
+        "accent_color": "#ff0000",
+        "box_link_1": "",
+        "box_link_2": "",
+        "box_link_3": "",
+        "box_link_4": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_CKhHYp",
+    "featured_collection_pRp4PK",
+    "product_tab_6Cb8DY",
+    "floating_design_Xn6UMz"
+  ]
+}

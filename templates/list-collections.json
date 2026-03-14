@@ -1,0 +1,257 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "5a6167b9-7e65-4f28-bb95-335bbeadc0bc": {
+      "type": "breadcrumb",
+      "disabled": true,
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "use_breadcrumb_title": true,
+        "breadcrumb_style": "center",
+        "image_overlay_opacity": 1,
+        "color_scheme": "background-1",
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    },
+    "main": {
+      "type": "main-list-collections",
+      "disabled": true,
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "All Collection",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "Aliquam vestibulum mauris eu velit imperdiet venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "collection_layout": "overlay",
+        "collection_button_label": "",
+        "collection_count": true,
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "alt_text": "",
+        "video_text": "",
+        "padding_top": 120,
+        "padding_bottom": 60
+      }
+    },
+    "slideshow_kTzkDb": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_GbaQRr": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-03-11T222140.696.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-03-11T174431.098.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_GbaQRr"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "slider_image_height": 800,
+        "slider_image_height_laptop": 800,
+        "slider_image_height_tab": 500,
+        "slider_image_height_mobile": 400,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 0,
+        "slider_effect": "slide",
+        "show_text_below": false,
+        "custom_class_name": ""
+      }
+    },
+    "grid_collection_KMryiQ": {
+      "type": "grid-collection",
+      "blocks": {
+        "collection_nCFae9": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "babycare",
+            "image": "shopify://shop_images/Teether-20.png",
+            "custom_link": "shopify://pages/babycare",
+            "heading": "Babycare",
+            "subtitle": "",
+            "button_text": "Shop Now"
+          }
+        },
+        "collection_xfCpbY": {
+          "type": "collection",
+          "settings": {
+            "collection": "backpacks",
+            "image": "shopify://shop_images/bag2.png",
+            "custom_link": "shopify://pages/travel-collections",
+            "heading": "Travel Collections",
+            "subtitle": "",
+            "button_text": "Shop Now"
+          }
+        },
+        "collection_rR3MCx": {
+          "type": "collection",
+          "settings": {
+            "collection": "stationery",
+            "image": "shopify://shop_images/pouches.png",
+            "custom_link": "shopify://pages/stationary",
+            "heading": "Stationary",
+            "subtitle": "",
+            "button_text": "Shop Now"
+          }
+        }
+      },
+      "block_order": [
+        "collection_nCFae9",
+        "collection_xfCpbY",
+        "collection_rR3MCx"
+      ],
+      "settings": {
+        "border_color": "#ebebeb",
+        "circle_size": 470,
+        "columns_desktop": 2,
+        "columns_mobile": 1
+      }
+    },
+    "collection_list_7ckiny": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_VfFQq6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "backpacks"
+          }
+        },
+        "featured_collection_UpTbfh": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "babycare"
+          }
+        },
+        "featured_collection_YzVthc": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "stationery"
+          }
+        },
+        "featured_collection_mhcqGh": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "pull-toys"
+          }
+        },
+        "featured_collection_cgT9Wa": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "play-mats"
+          }
+        },
+        "featured_collection_d6keBV": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "squeaky-toys"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_VfFQq6",
+        "featured_collection_UpTbfh",
+        "featured_collection_YzVthc",
+        "featured_collection_mhcqGh",
+        "featured_collection_cgT9Wa",
+        "featured_collection_d6keBV"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".animation-wrap.show-animation {border: none !important;}"
+      ],
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "image_ratio": "square",
+        "image_style": "default",
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "show_view_all": false,
+        "collection_layout": "defalut",
+        "collection_count": true,
+        "collection_description": true,
+        "padding_top": 80,
+        "padding_bottom": 36,
+        "swiper_enable": false,
+        "desktop_column": 4,
+        "laptop_column": 4,
+        "tablet_column": 3,
+        "mobile_column": 1,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 0,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1"
+      }
+    },
+    "floating_design_DLhGKT": {
+      "type": "floating-design",
+      "settings": {
+        "heading_line1": "Your",
+        "heading_line2": "simpler",
+        "heading_line3": "life starts",
+        "heading_line4": "here",
+        "circle_text": "",
+        "accent_color": "#ff0000",
+        "box_link_1": "",
+        "box_link_2": "",
+        "box_link_3": "",
+        "box_link_4": ""
+      }
+    }
+  },
+  "order": [
+    "5a6167b9-7e65-4f28-bb95-335bbeadc0bc",
+    "main",
+    "slideshow_kTzkDb",
+    "grid_collection_KMryiQ",
+    "collection_list_7ckiny",
+    "floating_design_DLhGKT"
+  ]
+}

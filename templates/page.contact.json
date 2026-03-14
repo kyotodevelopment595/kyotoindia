@@ -1,0 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "20c2390c-0520-44bb-b54d-c38692a00aaa": {
+      "type": "breadcrumb",
+      "disabled": true,
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "use_breadcrumb_title": true,
+        "breadcrumb_style": "center",
+        "image_overlay_opacity": 0,
+        "color_scheme": "background-1",
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "0b8c12a8-0a65-4c8c-b88c-2a212202886f": {
+      "type": "form-image",
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": true,
+        "title": "Let’s Talk",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "left",
+        "color_scheme": "background-1",
+        "custom_liquid": "",
+        "address_heading": "",
+        "address_desc": "",
+        "collapsible_address": "",
+        "collapsible_contact_no": "",
+        "collapsible_contact_id": "",
+        "block_alignments": "map-with-form",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "custom_class_name": ""
+      }
+    },
+    "floating_design_7RGKPJ": {
+      "type": "floating-design",
+      "settings": {
+        "heading_line1": "Your",
+        "heading_line2": "Simpler",
+        "heading_line3": "Life Starts",
+        "heading_line4": "Here",
+        "circle_text": "Get in Touch!",
+        "accent_color": "#ff0000",
+        "box_link_1": "",
+        "box_link_2": "",
+        "box_link_3": "",
+        "box_link_4": ""
+      }
+    }
+  },
+  "order": [
+    "20c2390c-0520-44bb-b54d-c38692a00aaa",
+    "main",
+    "0b8c12a8-0a65-4c8c-b88c-2a212202886f",
+    "floating_design_7RGKPJ"
+  ]
+}

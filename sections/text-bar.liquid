@@ -1,0 +1,108 @@
+{%- style -%}
+.announcement-bar {
+  background-color: {{ section.settings.background_color }};
+  color: {{ section.settings.text_color }};
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.announcement-text {
+  margin: 0;
+  font-size: 14px;
+  flex: 1;
+}
+
+.announcement-button {
+  color: {{ section.settings.button_text_color }};
+  text-decoration: none;
+  padding: 8px 24px;
+  border: 1px solid {{ section.settings.button_text_color }};
+  border-radius: 50px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.announcement-button:hover {
+  background-color: {{ section.settings.button_text_color }};
+  color: {{ section.settings.background_color }};
+}
+
+@media screen and (max-width: 768px) {
+  .announcement-bar {
+    text-align: center;
+    padding: 10px 15px;
+    justify-content: center;
+  }
+  
+  .announcement-text {
+    flex: 0 0 100%;
+    margin-bottom: 10px;
+  }
+}
+{%- endstyle -%}
+
+<div class="announcement-bar">
+  {% if section.settings.text != blank %}
+    <p class="announcement-text">{{ section.settings.text }}</p>
+  {% endif %}
+  
+  {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+    <a href="{{ section.settings.button_link }}" class="announcement-button">
+      {{ section.settings.button_text }}
+    </a>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#EE1C25"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Get it"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}

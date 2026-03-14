@@ -1,0 +1,140 @@
+{% schema %}
+{
+  "name": "Curved Slider",
+  "settings": [
+    {
+      "type": "color",
+      "id": "curve_color",
+      "label": "Curve Color",
+      "default": "#ff0000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Curved Slider"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.curved-container {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.curve {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background: {{ section.settings.curve_color }};
+}
+
+.top-curve {
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+
+.bottom-curve {
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+
+.slider-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 300px;
+  scroll-snap-align: center;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .slide {
+    flex: 0 0 250px;
+  }
+}
+</style>
+
+<div class="curved-container">
+  <div class="curve top-curve"></div>
+  
+  <div class="slider-wrapper">
+    <div class="slider" id="slider">
+      {% for block in section.blocks %}
+        <div class="slide {% if forloop.index == 1 %}active{% endif %}" {{ block.shopify_attributes }}>
+          {% if block.settings.image %}
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="Slide">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <div class="curve bottom-curve"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById('slider');
+  const slides = slider.querySelectorAll('.slide');
+  
+  const updateActiveSlide = () => {
+    const center = slider.offsetWidth / 2;
+    const scrollCenter = slider.scrollLeft + center;
+    
+    slides.forEach(slide => {
+      const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+      slide.classList.toggle('active', 
+        Math.abs(slideCenter - scrollCenter) < slide.offsetWidth / 2);
+    });
+  };
+
+  slider.addEventListener('scroll', updateActiveSlide);
+  window.addEventListener('resize', updateActiveSlide);
+  updateActiveSlide();
+});
+</script>

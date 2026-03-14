@@ -1,0 +1,145 @@
+{% schema %}
+{
+  "name": "Curved Border Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Center Image"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 100,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Image Width",
+      "default": 300
+    }
+  ],
+  "presets": [
+    {
+      "name": "Curved Border with Image"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.curved-border-section {
+  position: relative;
+  width: 100%;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  object-fit: cover;
+}
+
+.border-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.curved-border {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.top-border {
+  top: 0;
+  transform: translateY(-50%);
+  border-radius: 0 0 100% 100%;
+}
+
+.bottom-border {
+  bottom: 0;
+  transform: translateY(50%);
+  border-radius: 100% 100% 0 0;
+}
+
+.content-container {
+  position: relative;
+  z-index: -1;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-image {
+  max-width: {{ section.settings.image_width }}px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .curved-border-section {
+    padding: 40px 0;
+  }
+  
+  .curved-border {
+    height: 30px;
+  }
+  
+  .content-container {
+    padding: 30px 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .curved-border-section {
+    padding: 30px 0;
+  }
+  
+  .curved-border {
+    height: 20px;
+  }
+  
+  .content-container {
+    padding: 20px 10px;
+  }
+}
+</style>
+
+<div class="curved-border-section">
+  {% if section.settings.background_image %}
+    {{ section.settings.background_image | image_url: width: 2000 | image_tag: 
+       class: 'section-background', 
+       loading: 'lazy' }}
+  {% endif %}
+  
+  <div class="border-container">
+    <div class="curved-border top-border"></div>
+    
+    <div class="content-container">
+      {% if section.settings.center_image %}
+        {{ section.settings.center_image | image_url: width: section.settings.image_width | 
+           image_tag: class: 'center-image', 
+           loading: 'lazy' }}
+      {% endif %}
+    </div>
+    
+    <div class="curved-border bottom-border"></div>
+  </div>
+</div>

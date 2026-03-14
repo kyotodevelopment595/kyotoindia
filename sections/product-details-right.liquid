@@ -1,0 +1,344 @@
+{% comment %}
+  sections/product-details.liquid
+{% endcomment %}
+
+<div class="product-details-container">
+  <div class="header">
+    <h1>{{ section.settings.main_title }}</h1>
+    <button class="close-button">&lt;</button>
+  </div>
+
+  <!-- Top Section with Two Boxes -->
+  <div class="dual-box-section">
+    <div class="info-box">
+      <div class="icon">
+        {% if section.settings.icon_weight != blank %}
+          <img src="{{ section.settings.icon_weight | img_url: '50x50' }}" alt="Weight icon" loading="lazy">
+        {% endif %}
+      </div>
+      <div class="content">
+        <h3 class="title">{{ section.settings.box1_title }}</h3>
+        <p class="value">{{ section.settings.box1_value }}</p>
+        <p class="subtitle">{{ section.settings.box1_subtitle }}</p>
+      </div>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <div class="info-box">
+      <div class="icon">
+        {% if section.settings.icon_gold != blank %}
+          <img src="{{ section.settings.icon_gold | img_url: '50x50' }}" alt="Gold icon" loading="lazy">
+        {% endif %}
+      </div>
+      <div class="content">
+        <h3 class="title">{{ section.settings.box2_title }}</h3>
+        <p class="value">{{ section.settings.box2_value }}</p>
+        <p class="subtitle">{{ section.settings.box2_subtitle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Middle Section with Single Box -->
+  <div class="single-box-section">
+    <div class="info-box centered">
+      <div class="icon">
+        {% if section.settings.icon_diamond != blank %}
+          <img src="{{ section.settings.icon_diamond | img_url: '50x50' }}" alt="Diamond icon" loading="lazy">
+        {% endif %}
+      </div>
+      <div class="content">
+        <h3 class="title">{{ section.settings.box3_title }}</h3>
+        <p class="value">{{ section.settings.box3_value }}</p>
+        <p class="subtitle">{{ section.settings.box3_subtitle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table Section -->
+  <div class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>{{ section.settings.table_header1 }}</th>
+          <th>{{ section.settings.table_header2 }}</th>
+          <th>{{ section.settings.table_header3 }}</th>
+          <th>{{ section.settings.table_header4 }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">{{ section.settings.table_cell1 }}</td>
+          <td class="highlight">{{ section.settings.table_cell2 }}</td>
+          <td class="highlight">{{ section.settings.table_cell3 }}</td>
+          <td class="highlight">{{ section.settings.table_cell4 }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+.product-details-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  color: #4A0043;
+  font-size: 24px;
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.dual-box-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.divider {
+  width: 1px;
+  height: 100px;
+  background-color: #E0E0E0;
+  margin: 0 20px;
+}
+
+.info-box {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.icon {
+  margin-bottom: 15px;
+}
+
+.icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.title {
+  color: #4A0043;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+}
+
+.value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4A0043;
+  margin: 0 0 5px 0;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+}
+
+.single-box-section {
+  margin-bottom: 40px;
+}
+
+.single-box-section .info-box {
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: #F8F4F8;
+  border-radius: 8px;
+}
+
+.table-section {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #4A0043;
+  color: white;
+}
+
+th {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #6B2465;
+}
+
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #6B2465;
+}
+
+td.highlight {
+  background-color: #F8F4F8;
+  color: #4A0043;
+}
+
+@media (max-width: 768px) {
+  .dual-box-section {
+    flex-direction: column;
+  }
+  
+  .divider {
+    width: 100%;
+    height: 1px;
+    margin: 20px 0;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Product Details",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "Product Details"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_weight",
+      "label": "Weight Icon"
+    },
+    {
+      "type": "text",
+      "id": "box1_title",
+      "label": "Box 1 Title",
+      "default": "Total Weight"
+    },
+    {
+      "type": "text",
+      "id": "box1_value",
+      "label": "Box 1 Value",
+      "default": "0.624 Grams"
+    },
+    {
+      "type": "text",
+      "id": "box1_subtitle",
+      "label": "Box 1 Subtitle",
+      "default": "Approx. Gross Weight"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_gold",
+      "label": "Gold Icon"
+    },
+    {
+      "type": "text",
+      "id": "box2_title",
+      "label": "Box 2 Title",
+      "default": "14K Rose Gold"
+    },
+    {
+      "type": "text",
+      "id": "box2_value",
+      "label": "Box 2 Value",
+      "default": "0.6001 Grams"
+    },
+    {
+      "type": "text",
+      "id": "box2_subtitle",
+      "label": "Box 2 Subtitle",
+      "default": "Approx. Metal Weight"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_diamond",
+      "label": "Diamond Icon"
+    },
+    {
+      "type": "text",
+      "id": "box3_title",
+      "label": "Box 3 Title",
+      "default": "Lab Grown CVD Type IIA Diamonds"
+    },
+    {
+      "type": "text",
+      "id": "box3_value",
+      "label": "Box 3 Value",
+      "default": "0.12 Ct."
+    },
+    {
+      "type": "text",
+      "id": "box3_subtitle",
+      "label": "Box 3 Subtitle",
+      "default": "Approx. Diamond Weight"
+    },
+    {
+      "type": "text",
+      "id": "table_header1",
+      "label": "Table Header 1",
+      "default": "Diamonds"
+    },
+    {
+      "type": "text",
+      "id": "table_header2",
+      "label": "Table Header 2",
+      "default": "Shape / Clarity / Color"
+    },
+    {
+      "type": "text",
+      "id": "table_header3",
+      "label": "Table Header 3",
+      "default": "Count"
+    },
+    {
+      "type": "text",
+      "id": "table_header4",
+      "label": "Table Header 4",
+      "default": "Total Wt."
+    },
+    {
+      "type": "text",
+      "id": "table_cell1",
+      "label": "Table Cell 1",
+      "default": "Small Diamonds"
+    },
+    {
+      "type": "text",
+      "id": "table_cell2",
+      "label": "Table Cell 2",
+      "default": "Round EF - VS"
+    },
+    {
+      "type": "text",
+      "id": "table_cell3",
+      "label": "Table Cell 3",
+      "default": "4"
+    },
+    {
+      "type": "text",
+      "id": "table_cell4",
+      "label": "Table Cell 4",
+      "default": "0.118"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Details",
+      "category": "Product Information"
+    }
+  ]
+}
+{% endschema %}

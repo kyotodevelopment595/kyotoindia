@@ -1,0 +1,220 @@
+{% schema %}
+{
+  "name": "Grid Collections",
+  "settings": [
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#ebebeb"
+    },
+    {
+      "type": "range",
+      "id": "circle_size",
+      "min": 100,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Circle Size",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Columns per row (desktop)",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Columns per row (mobile)",
+      "default": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image"
+        },
+        {
+          "type": "url",
+          "id": "custom_link",
+          "label": "Custom Link"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Collection Name"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Collection description"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Collections",
+      "blocks": [
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .grid-collections {
+    padding: 6rem 2rem;
+    background: white;
+  }
+
+  .collection-grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .collection-item {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 2px solid {{ section.settings.border_color }};
+    transition: transform 0.3s ease;
+  }
+
+  .circle:hover {
+    transform: scale(1.05);
+  }
+
+  .circle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collection-content {
+    padding: 1rem;
+  }
+
+  .collection-heading {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+    margin-top:0.3rem;
+    color: #333;
+  }
+
+  .collection-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .collection-button {
+    display: inline-block;
+    padding: 1.3rem 2rem;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .collection-button:hover {
+    background-color: #000;
+  }
+
+  @media (max-width: 768px) {
+    .collection-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #ff0000;
+    color: white;
+      font-size:1.2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+    .grid-collections {
+    padding: 6rem 2rem;
+    background: white;
+  }
+    .collection-grid {
+      grid-template-columns: repeat(2, 1fr);
+    gap: 5rem 2rem;
+    }
+
+    .circle {
+      width: {{ section.settings.circle_size | times: 0.8 }}px;
+      height: {{ section.settings.circle_size | times: 0.8 }}px;
+    }
+
+    .collection-heading {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<div class="grid-collections">
+  <div class="collection-grid">
+    {% for block in section.blocks %}
+      {% assign collection = collections[block.settings.collection] %}
+      <a href="{{ block.settings.custom_link | default: collection.url }}" class="collection-item" {{ block.shopify_attributes }}>
+        <div class="circle">
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: section.settings.circle_size | image_tag: loading: 'lazy', class: 'circle-image' }}
+          {% elsif collection.image != blank %}
+            {{ collection.image | image_url: width: section.settings.circle_size | image_tag: loading: 'lazy', class: 'circle-image' }}
+          {% else %}
+            <div class="placeholder-image">{{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+          {% endif %}
+        </div>
+        
+        <div class="collection-content">
+          <h3 class="collection-heading">{{ block.settings.heading }}</h3>
+          <p class="collection-subtitle">{{ block.settings.subtitle }}</p>
+          <span class="collection-button">{{ block.settings.button_text }}</span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>

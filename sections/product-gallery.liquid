@@ -1,0 +1,274 @@
+{% schema %}
+{
+  "name": "Product Gallery Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Products"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section Description",
+      "default": "<p>Discover our collection of finest wines</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product Title",
+          "default": "Puglia IGT"
+        },
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "2020"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Fiano Bio"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "url",
+          "id": "product_link",
+          "label": "Product Link"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Product Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Gallery Grid",
+      "blocks": [
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+/* Core styles */
+:root {
+    --header-height: 60px;
+    --color-secondary: #666;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 7rem 0;
+    --sidebar-width: 65%;
+    --main-width: 35%;
+}
+
+.product-gallery-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.product-info-sidebar {
+    width: var(--sidebar-width);
+    padding: var(--spacing-lg);
+    background-color: #f4e04d;
+}
+
+.sidebar-content {
+    position: sticky;
+    top: 3%;
+    transform: translateY(5%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.desktop-grid {
+    width: var(--main-width);
+    margin-left: auto;
+    padding: var(--spacing-lg);
+    background: #fff;
+}
+
+/* Typography */
+.section-title {
+  text-align: center;
+    font-family: "Clearface Std", Georgia, serif;
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.section-description {
+   text-align: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 2rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+}
+
+.product-title {
+    text-align: center;
+    font-family: "Clearface Std", Georgia, serif;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.product-subtitle {
+  line-height: 1.7;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.product-card {
+    position: relative;
+    height: calc(120vh - 200px);
+    width: 100%;
+}
+
+.product-header {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    padding: var(--spacing-sm) 0;
+    background: #fff;
+}
+
+.product-image-container {
+    position: relative;
+    height: calc(100% - 80px);
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.product-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    padding: var(--spacing-md);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile styles */
+@media (max-width: 1023px) {
+    .product-gallery-container {
+        flex-direction: column;
+    }
+
+    .product-info-sidebar,
+    .desktop-grid {
+        width: 100%;
+    }
+
+    .product-card {
+        height: 80vh;
+    }
+
+    .product-title {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    
+      .product-title span{
+        font-weight: 600;
+         font-size: 3rem;
+    }
+}
+</style>
+
+<div class="product-gallery-container">
+  <div class="product-info-sidebar">
+    <div class="sidebar-content">
+      <h1 class="section-title">{{ section.settings.title }}</h1>
+      <div class="section-description">
+        {{ section.settings.description }}
+      </div>
+    </div>
+  </div>
+
+  <div class="desktop-grid">
+    <div class="product-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'product' %}
+          <div class="product-card" {{ block.shopify_attributes }}>
+            <header class="product-header">
+              <h3 class="product-title">
+                <span>{{ block.settings.product_title }}</span> {{ block.settings.year }}
+                <div class="product-subtitle">{{ block.settings.subtitle }}</div>
+              </h3>
+            </header>
+            
+            <div class="product-image-container">
+              {% if block.settings.product_link != blank %}
+                <a href="{{ block.settings.product_link }}" class="product-link">
+              {% endif %}
+                {% if block.settings.product_image %}
+                  {{ block.settings.product_image | image_url: width: 430 | image_tag:
+                    class: 'product-image',
+                    loading: 'lazy',
+                    width: 430,
+                    height: 1510,
+                    alt: block.settings.product_title
+                  }}
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'product-image' }}
+                {% endif %}
+              {% if block.settings.product_link != blank %}
+                </a>
+              {% endif %}
+            </div>
+
+            {% if block.settings.description != blank %}
+              <div class="product-description">
+                {{ block.settings.description }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

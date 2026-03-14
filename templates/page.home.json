@@ -1,0 +1,451 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "padding_top": 100,
+        "padding_bottom": 40
+      }
+    },
+    "slideshow_ybgfGa": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_KDwpGn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Kyoto_banner.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-07-16T190110.388.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "shopify://pages/travel-collections",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 50,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_MYdabP": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Artboard_1_1.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-03-11T174451.280.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "shopify://pages/stationary",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_Mdzwj4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/kyoto_web_banner.png",
+            "mobile_image": "shopify://shop_images/2_273df1af-34ac-41fd-ab04-f112c2b72bd2.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "shopify://pages/travel-collections",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_r8dU3y": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Banner_ccc6dee2-4559-4df5-ab6a-dd013a3d6714.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-03-11T174720.479.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "shopify://pages/travel-collections",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "accent-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_KDwpGn",
+        "slide_MYdabP",
+        "slide_Mdzwj4",
+        "slide_r8dU3y"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "slider_image_height": 700,
+        "slider_image_height_laptop": 700,
+        "slider_image_height_tab": 500,
+        "slider_image_height_mobile": 450,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 4,
+        "slider_effect": "slide",
+        "show_text_below": false,
+        "custom_class_name": ""
+      }
+    },
+    "basket_section_G98iGb": {
+      "type": "basket-section",
+      "custom_css": [
+        "{padding: 50px 0px;}",
+        "@media screen and (max-width: 600px) {{padding: 50px 40px 30px 40px; }}"
+      ],
+      "settings": {
+        "heading": "",
+        "highlight_text": "",
+        "subtitle1": "",
+        "subtitle2": "",
+        "basket_image": "shopify://shop_images/Asset_2.png",
+        "highlight_color": "#ff0000"
+      }
+    },
+    "swiper_collections_8yVnpR": {
+      "type": "swiper-collections",
+      "blocks": {
+        "collection_tCm9fy": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "babycare",
+            "image": "shopify://shop_images/Teether-20.png",
+            "custom_link": "shopify://pages/babycare",
+            "heading": "Babycare",
+            "subtitle": "",
+            "button_text": "Shop Now",
+            "button_link": "shopify://pages/babycare"
+          }
+        },
+        "collection_gD7yTY": {
+          "type": "collection",
+          "settings": {
+            "collection": "backpacks",
+            "image": "shopify://shop_images/bag2.png",
+            "custom_link": "shopify://pages/travel-collections",
+            "heading": "Travel Collections",
+            "subtitle": "",
+            "button_text": "Shop Now",
+            "button_link": "shopify://pages/travel-collections"
+          }
+        },
+        "collection_NtTibg": {
+          "type": "collection",
+          "settings": {
+            "collection": "stationery",
+            "image": "shopify://shop_images/samkit_toys_49643.jpg",
+            "custom_link": "shopify://pages/stationary",
+            "heading": "Stationary",
+            "subtitle": "",
+            "button_text": "Shop Now",
+            "button_link": "shopify://pages/stationary"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tCm9fy",
+        "collection_gD7yTY",
+        "collection_NtTibg"
+      ],
+      "settings": {
+        "border_color": "#ebebeb",
+        "circle_size": 700,
+        "autoplay_enable": true,
+        "autoplay_delay": 3000
+      }
+    },
+    "custom_liquid_tzVqaJ": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": true,
+        "column_alignment": "center",
+        "custom_liquid": "<div class=\"homeAboutMainContainer\">\n<div class=\"homeAboutTitle\">\n<img src=\"https://cdn.shopify.com/s/files/1/0924/0677/6122/files/ABOUT_US-01.png?v=1740459059\" />\n</div>\n<div class=\"imageBox\">\n<img src=\"https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Untitled_design_79.png?v=1742367888\" />\n</div>\n<div class=\"homeAboutContentBox\">\n<h3>From concept to creation, we craft products that blend function & simplicity\n</h3>\n<a href=\"https://kyotoindia.in/pages/about-us\">\n<button>Explore Our Story</button>\n</a>\n</div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "testimonial_slider_WfJRVH": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "testimonial_wrDd6p": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/samkit_toys_49686.jpg",
+            "title": "Sneha",
+            "content": "Obsessed with how light these bags are! \n\nStarted with one, now I have three. \nThe way everything just... fits? Pure magic. \nThese are definitely my everyday go-to now."
+          }
+        },
+        "testimonial_NexfwJ": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/samkittoys_49671.jpg",
+            "title": "Ananya",
+            "content": "Not gonna lie, I picked this because it looked cute. Turns out, it’s also super practical. Love it!"
+          }
+        },
+        "testimonial_LpV9k9": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/samkit_toys_49639_7d03a7aa-e869-4156-b826-71f9f2c96e48.jpg",
+            "title": "Priya",
+            "content": "Got this pouch for my kid, but I ended up stealing it. Holds everything without the mess—10/10."
+          }
+        },
+        "testimonial_HF3yfm": {
+          "type": "testimonial",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/samkittoys_49545.jpg",
+            "title": "Raj",
+            "content": "I bought this teether just to try, and now it’s the only one my baby wants. Total lifesaver!"
+          }
+        },
+        "testimonial_NcWqmF": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/samkittoys_49670.jpg",
+            "title": "Arjun",
+            "content": "Took this on a work trip, and now I can’t use anything else. So light, so organized. Just makes life easier."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_wrDd6p",
+        "testimonial_NexfwJ",
+        "testimonial_LpV9k9",
+        "testimonial_HF3yfm",
+        "testimonial_NcWqmF"
+      ],
+      "custom_css": [
+        "{margin-top: -30px;}"
+      ],
+      "settings": {
+        "section_title": "What're They Saying?"
+      }
+    },
+    "custom_liquid_6Vgx6a": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".instagramTextBox {display: flex; align-items: center; justify-content: center; margin-bottom: -50px;}",
+        ".instagramText {width: 60%;}",
+        "@media screen and (max-width: 600px) {.instagramText {width: 90%; }}"
+      ],
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "custom_liquid": "<div class=\"instagramTextBox\">\n<img class=\"instagramText\" src=\"https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Kyoto_In_Motion_TEXT-01.png?v=1740460319\" />\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1742014361280a671d": {
+      "type": "apps",
+      "blocks": {
+        "gsc_instagram_feed_instafeed_EEn8aX": {
+          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
+          "settings": {
+            "widget_id": "GSC-uvJpLVVeuYlqHPO"
+          }
+        }
+      },
+      "block_order": [
+        "gsc_instagram_feed_instafeed_EEn8aX"
+      ],
+      "custom_css": [
+        "{padding: 0; margin: 0;}"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "instagram_gallery_qm3KJJ": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "text_nYzFEb": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468396993_17983497299766135_6967576131576438456_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "Sub title",
+            "block_description": "Where style meets functionality! This sequined pouch isn’t just about looks, it’s your go-to for keeping all your stationery in one dazzling place. Get yours today!",
+            "block_button_link": "https://www.instagram.com/p/C_an4lqNn-k/",
+            "block_video": ""
+          }
+        },
+        "text_6gMJp6": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468498979_17983497071766135_1043025637443623942_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        },
+        "text_JQraEm": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468340219_17983497089766135_3045488755264514209_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        },
+        "text_KQpdq4": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468056496_17983497053766135_8712045842023588253_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        },
+        "text_TwXc4a": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468306040_17983495760766135_6932145591774450872_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_nYzFEb",
+        "text_6gMJp6",
+        "text_JQraEm",
+        "text_KQpdq4",
+        "text_TwXc4a"
+      ],
+      "disabled": true,
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "column_alignment": "center",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "overlay_height": 400,
+        "overlay_height_laptop": 300,
+        "overlay_height_tab": 300,
+        "overlay_height_mobile": 200,
+        "desktop_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 80,
+        "swiper_enable": true,
+        "desktop_column": 4,
+        "laptop_column": 4,
+        "tablet_column": 3,
+        "mobile_column": 1,
+        "centered_slide": false,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 0,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1",
+        "custom_class_name": ""
+      }
+    },
+    "floating_design_TYpy8M": {
+      "type": "floating-design",
+      "settings": {
+        "heading_line1": "Your",
+        "heading_line2": "simpler",
+        "heading_line3": "life starts",
+        "heading_line4": "here",
+        "circle_text": "",
+        "accent_color": "#ff0000",
+        "box_link_1": "shopify://pages/travel-collections",
+        "box_link_2": "shopify://pages/about-us",
+        "box_link_3": "shopify://pages/contact",
+        "box_link_4": "shopify://pages/stationary"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_ybgfGa",
+    "basket_section_G98iGb",
+    "swiper_collections_8yVnpR",
+    "custom_liquid_tzVqaJ",
+    "testimonial_slider_WfJRVH",
+    "custom_liquid_6Vgx6a",
+    "1742014361280a671d",
+    "instagram_gallery_qm3KJJ",
+    "floating_design_TYpy8M"
+  ]
+}

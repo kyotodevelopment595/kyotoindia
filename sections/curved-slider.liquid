@@ -1,0 +1,147 @@
+{% schema %}
+{
+  "name": "Product Slider",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Products"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Slider",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="product-slider-section">
+  {% if section.settings.heading != blank %}
+    <h2 class="section-heading text-center my-8">{{ section.settings.heading }}</h2>
+  {% endif %}
+  
+  {% if section.settings.collection != blank %}
+    <div class="swiper product-swiper">
+      <div class="swiper-wrapper">
+        {% for product in section.settings.collection.products %}
+          <div class="swiper-slide">
+            <a href="{{ product.url }}" class="product-card">
+              {% if product.featured_image %}
+                <div class="product-image-wrapper">
+                  <img 
+                    src="{{ product.featured_image | img_url: '400x' }}"
+                    alt="{{ product.featured_image.alt | escape }}"
+                    class="product-image"
+                    loading="lazy"
+                    width="400"
+                    height="400"
+                  >
+                </div>
+              {% endif %}
+              <h3 class="product-title">{{ product.title }}</h3>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+.product-slider-section {
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.product-swiper {
+  padding: 2rem 0;
+}
+
+.swiper-slide {
+  transition: all 0.3s ease;
+  opacity: 0.5;
+  transform: scale(0.8);
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-card {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.product-image-wrapper {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.product-title {
+  color: #333;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .product-swiper {
+    padding: 1rem 0;
+  }
+  
+  .swiper-slide {
+    transform: scale(0.9);
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  new Swiper('.product-swiper', {
+    slidesPerView: 3,
+    centeredSlides: true,
+    spaceBetween: 30,
+    loop: true,
+    effect: 'coverflow',
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: false,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1.5,
+        spaceBetween: 20
+      },
+      768: {
+        slidesPerView: 2.5,
+        spaceBetween: 30
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      }
+    }
+  });
+});
+</script>

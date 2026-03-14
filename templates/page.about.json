@@ -1,0 +1,182 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "slideshow_VU9YJc": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_AUAwWg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_50.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_51.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_AUAwWg"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "slider_image_height": 900,
+        "slider_image_height_laptop": 700,
+        "slider_image_height_tab": 500,
+        "slider_image_height_mobile": 400,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 0,
+        "slider_effect": "slide",
+        "show_text_below": false,
+        "custom_class_name": ""
+      }
+    },
+    "custom_liquid_nEWncY": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        ".philosophyContentBox {padding: 0px 10px; font-size: 2rem; font-weight: 400;}",
+        ".philosophyTitle {text-align: center; font-size: 5rem; font-weight: 700;}",
+        "@media screen and (max-width: 600px) {.philosophyContentBox {padding: 0px 10px; font-size: 1.2rem; font-weight: 400; } .philosophyTitle {text-align: center; font-size: 3.5rem; font-weight: 700; }}"
+      ],
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": true,
+        "column_alignment": "center",
+        "custom_liquid": "<div>\n<img src=\"https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Untitled_design_39.png?v=1740984576\">\n<h3 class=\"philosophyTitle\">Design <i> Philosophy</i></h3>\n<p class=\"philosophyContentBox\" style=\"text-align:center;\" >\nYou know that feeling when everything just works? When your bag has exactly what you need, exactly where you expect it to be?  <br /> <br />\nThat's what we chase at Kyoto. Every product starts with real stories from real people, from parents rushing to daycare, professionals heading to meetings, to travelers exploring new cities.  <br /> <br />\nWe obsess over the small details because we know they make a big difference in your day. From the angle of a strap to the depth of a pocket, every decision serves a purpose.\n\n</p>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_LF7Gjn": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        ".ourStoryBox {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: 60px;}",
+        ".philosophyContentBox {padding: 0px 0px; font-size: 1.7rem; font-weight: 400;}",
+        ".philosophyTitle {font-size: 5rem; font-weight: 700;}",
+        "@media screen and (max-width: 600px) {.ourStoryBox {display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 30px; } .philosophyContentBox {font-size: 1.3rem; font-weight: 400; padding-left: 10px; } .philosophyTitle {padding-left: 10px; font-size: 4rem; }}"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": true,
+        "column_alignment": "center",
+        "custom_liquid": "<div class=\"ourStoryBox\" >\n<div>\n<img src=\"https://cdn.shopify.com/s/files/1/0924/0677/6122/files/2_0e6d7034-6727-49ec-976b-025d79897373.png?v=1740429425\" />\n</div>\n<div>\n<h3 class=\"philosophyTitle\">Our <i> Story</i></h3>\n<p class=\"philosophyContentBox\"  >\nYou know that feeling when everything just works? When your bag has exactly what you need, exactly where you expect it to be?  <br /> <br />\nThat's what we chase at Kyoto. Every product starts with real stories from real people, from parents rushing to daycare, professionals heading to meetings, to travelers exploring new cities.  <br /> <br />\nWe obsess over the small details because we know they make a big difference in your day. From the angle of a strap to the depth of a pocket, every decision serves a purpose.\n\n</p>\n</div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_cWWbmw": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        ".ourStoryBox {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: 60px;}",
+        ".philosophyContentBox {padding: 0px 0px; font-size: 1.7rem; font-weight: 400; padding-left: 30px;}",
+        ".philosophyTitle {padding-left: 30px; font-size: 5rem; font-weight: 700;}",
+        "@media screen and (max-width: 600px) {.ourStoryBox {grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 30px; } .philosophyContentBox {font-size: 1.3rem; font-weight: 400; padding-left: 10px; } .philosophyTitle {padding-left: 10px; font-size: 4rem; }}"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": true,
+        "column_alignment": "center",
+        "custom_liquid": "<div class=\"ourStoryBox\" >\n\n<div class=\"storyContentBox\">\n<h3 class=\"philosophyTitle\">Why <i> We Started</i></h3>\n<p class=\"philosophyContentBox\"  >\nAs someone who's always valued simplicity, I found it ironic that the very things designed to organize our lives were often causing more chaos. That frustration turned into inspiration.  <br /> <br />\nWhat if our everyday essentials could be both beautifully minimal and incredibly functional? What if we could create products that actually made life easier, not just prettier?   <br /> <br />\nThis wasn't just about making another bag brand – it was about reimagining how we interact with the things we carry every day.\n\n</p>\n</div>\n<div>\n<img src=\"https://cdn.shopify.com/s/files/1/0924/0677/6122/files/1_46ab4c05-fe73-455b-a21b-bc967b7ee908.png?v=1740429425\" />\n</div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "design_philosophy_JTWj4G": {
+      "type": "design-philosophy",
+      "settings": {
+        "top_banner": "shopify://shop_images/design_philosophy_bg-23.png",
+        "main_logo": "shopify://shop_images/design_philosophy_typo-22.png",
+        "philosophy_text": "<p>You know that feeling when everything just works? </p><p>When your bag has exactly what you need, exactly where you expect it to be? </p><p>That's what we chase at Kyoto. Every product starts with real stories from real people, from parents rushing to daycare, professionals heading to meetings, to travelers exploring new cities. </p><p>We obsess over the small details because we know they make a big difference in your day. From the angle of a strap to the depth of a pocket, every decision serves a purpose.</p>",
+        "story_bg": "shopify://shop_images/Untitled_800_x_1000_px.png",
+        "story_heading_image": "shopify://shop_images/our_story_3.png",
+        "story_content_bg": "shopify://shop_images/text_bg_our_story_why_we_started.png",
+        "story_text": "<p>“The best solution is often the simplest one.\" </p><p>These words echoed in my mind one chaotic morning in 2023, as I found myself (like many of you) juggling multiple bags, searching for keys, and trying to keep everything together. </p>",
+        "why_bg": "shopify://shop_images/Untitled_800_x_1000_px_1.png",
+        "why_heading_image": "shopify://shop_images/our_story_2.png",
+        "why_content_bg": "shopify://shop_images/text_bg_our_story_why_we_started.png",
+        "why_text": "<p>As someone who's always valued simplicity, I found it ironic that the very things designed to organize our lives were often causing more chaos. That frustration turned into inspiration. </p><p>What if our everyday essentials could be both beautifully minimal and incredibly functional? What if we could create products that actually made life easier, not just prettier? </p><p>This wasn't just about making another bag brand – it was about reimagining how we interact with the things we carry every day.</p>"
+      }
+    },
+    "floating_design_HNP9Ux": {
+      "type": "floating-design",
+      "settings": {
+        "heading_line1": "Your",
+        "heading_line2": "Simpler",
+        "heading_line3": "Life Starts",
+        "heading_line4": "Here",
+        "circle_text": "",
+        "accent_color": "#ff0000",
+        "box_link_1": "",
+        "box_link_2": "",
+        "box_link_3": "",
+        "box_link_4": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_VU9YJc",
+    "custom_liquid_nEWncY",
+    "custom_liquid_LF7Gjn",
+    "custom_liquid_cWWbmw",
+    "design_philosophy_JTWj4G",
+    "floating_design_HNP9Ux"
+  ]
+}

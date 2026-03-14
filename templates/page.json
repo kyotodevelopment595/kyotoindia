@@ -1,0 +1,172 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "slideshow_ybgfGa": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_KDwpGn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Artboard_1_1.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-03-11T174451.280.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_MYdabP": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-03-11T222420.649.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-03-11T174642.017.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_Mdzwj4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-03-11T222435.049.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_-_2025-03-11T174705.900.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_KDwpGn",
+        "slide_MYdabP",
+        "slide_Mdzwj4"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "slider_image_height": 800,
+        "slider_image_height_laptop": 800,
+        "slider_image_height_tab": 500,
+        "slider_image_height_mobile": 400,
+        "swiper_pagination": false,
+        "swiper_navigation": true,
+        "auto_play": 4,
+        "slider_effect": "slide",
+        "show_text_below": false,
+        "custom_class_name": ""
+      }
+    },
+    "featured_collection_UTiAAq": {
+      "type": "featured-collection",
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "collection": "stationery",
+        "products_to_show": 100,
+        "columns_desktop": 3,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_new_tag": false,
+        "show_rating": false,
+        "enable_deal_banner": false,
+        "deal_banner_heading": "",
+        "deal_banner_text": "",
+        "deal_end_date": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class_name": "Default",
+        "swiper_enable": false,
+        "desktop_column": 3,
+        "laptop_column": 3,
+        "tablet_column": 3,
+        "mobile_column": 1,
+        "centered_slide": false,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 0,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1"
+      }
+    },
+    "floating_design_TYpy8M": {
+      "type": "floating-design",
+      "settings": {
+        "heading_line1": "Your",
+        "heading_line2": "Simpler",
+        "heading_line3": "Life Starts",
+        "heading_line4": "Here",
+        "circle_text": "",
+        "accent_color": "#ff0000",
+        "box_link_1": "",
+        "box_link_2": "",
+        "box_link_3": "",
+        "box_link_4": ""
+      }
+    }
+  },
+  "order": [
+    "slideshow_ybgfGa",
+    "main",
+    "featured_collection_UTiAAq",
+    "floating_design_TYpy8M"
+  ]
+}

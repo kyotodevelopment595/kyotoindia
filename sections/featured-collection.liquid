@@ -1,0 +1,751 @@
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- if settings.enable_quickadd or settings.enable_quickview -%}
+  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+{%- style -%}
+ .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 1.8 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+  }
+  .featuredTitleImage{
+    width:50%;
+  }
+  
+   .collection .grouped-content .deal-banner.deal--{{ section.id }}:after{
+    content:'';
+    width:100%;height:100%;
+    z-index:-1;
+     {% if section.settings.deal_bg_image != blank %}
+    background-image:url({{ section.settings.deal_bg_image | image_url: width: 880}});
+    {% else %}
+      background-image: url('data:image/svg+xml,<svg class="placeholder-svg" preserveAspectRatio="xMidYMin slice" viewBox="0 0 1300 731" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_755_1426)"><path d="M1300 0H0v730h1300V0Z" fill="%23F4D7AC"></path><path d="M1300 0H0v730h1300V0Z" fill="%23F4D7AC"></path><path d="M1300 541.81V0h-152.51c-4.24 182.83-58.15 262.15-112.53 299.42-100.54 68.9-214.72 2.39-374.85 73.28-96.14 42.56-159.93 113-200.11 169.1h840v.01ZM50.66 222.7c76.68-23.54 56.31-165.54 157.16-212.37C218.47 5.38 229.25 2.08 239.86 0H0v221.93c18.27 5.02 35.19 5.52 50.66.77Z" fill="%23F2CF9B"></path><path d="M0 221.81V326h506.8c3.17 0 3.37-4.69.21-4.96l-83.27-6.94a101.827 101.827 0 0 1-68.95-35.33l-33.62-39.36c-15.75-18.44-43.88-19.55-61.03-2.4l-13.55 13.55c-23.9 23.9-63.23 21.88-84.55-4.34l-38.13-46.88c-28.34-34.84-81.94-33.56-108.58 2.6L0 221.81Z" fill="%23F4D7AC"></path><path opacity=".5" d="M0 221.81V326h506.8c3.17 0 3.37-4.69.21-4.96l-83.27-6.94a101.827 101.827 0 0 1-68.95-35.33l-33.62-39.36c-15.75-18.44-43.88-19.55-61.03-2.4l-13.55 13.55c-23.9 23.9-63.23 21.88-84.55-4.34l-38.13-46.88c-28.34-34.84-81.94-33.56-108.58 2.6L0 221.81Z" fill="%23fff"></path><path d="M596 541.55 458.03 386.32c-19.56-23.48-51.19-33.11-80.52-24.54l-81.05 23.69c-29.54 8.64-61.39-1.21-80.91-25.01l-60.52-73.81c-4.16-5.08-8.96-9.6-14.26-13.47a77.457 77.457 0 0 0-36.04-14.28l-2.86-.36A69.98 69.98 0 0 0 45.8 276.5L0 318.69V730h596V541.55ZM1300 294.46l-45.02 54.91c-21.98 26.8-57.83 37.88-91.1 28.16l-91.26-26.68c-33.03-9.65-68.63 1.2-90.66 27.63L879.7 513.86v215.85H1300V294.45v.01Z" fill="%2370B3A0"></path><path d="m1300 294.46-45.02 54.91c-21.98 26.8-57.83 37.88-91.1 28.16l-91.26-26.68c-33.03-9.65-68.63 1.2-90.66 27.63l-121.84 161.3a143.612 143.612 0 0 1-39.67 35.95l-9.18 5.61a143.558 143.558 0 0 1-75.28 21.04l1.7 115.15 84-92 210.01-197.37c34.51-32.44 84-43.42 128.99-28.63 57.56 18.92 119.15-14.59 134.54-73.19l4.76-18.15v-13.72l.01-.01ZM392.25 432.27c17.49-22.28 49.8-26.03 71.92-8.33l94.48 75.59-100.62-113.2c-19.56-23.48-51.19-33.11-80.52-24.54l-81.05 23.69c-29.54 8.64-61.39-1.21-80.91-25.01l-60.52-73.81c-4.16-5.08-8.96-9.6-14.26-13.47a78.53 78.53 0 0 0-6.11-4.03l89.5 151.92c36.45 61.88 123.75 67.69 168.09 11.2v-.01Z" fill="%2388C0B0"></path><path d="m1296.87 65.5-30.76 37.82c-17.2 21.15-48.93 22.78-68.21 3.5l-10.93-10.93c-13.83-13.83-36.52-12.94-49.23 1.93l-27.12 31.75a82.13 82.13 0 0 1-55.62 28.5l-67.17 5.6c-2.55.21-2.39 4 .17 4h312V62c-1.07 1.12-2.13 2.27-3.13 3.5Z" fill="%23F2CF9B"></path><path opacity=".5" d="m1296.87 65.5-30.76 37.82c-17.2 21.15-48.93 22.78-68.21 3.5l-10.93-10.93c-13.83-13.83-36.52-12.94-49.23 1.93l-27.12 31.75a82.13 82.13 0 0 1-55.62 28.5l-67.17 5.6c-2.55.21-2.39 4 .17 4h312V62c-1.07 1.12-2.13 2.27-3.13 3.5Z" fill="%23fff"></path><path d="M232 185c34.242 0 62-27.758 62-62 0-34.242-27.758-62-62-62-34.242 0-62 27.758-62 62 0 34.242 27.758 62 62 62Z" fill="%23fff"></path><path d="M0 730.19h1300V437.2l-142.42 59.78a221.775 221.775 0 0 1-142.54 9.92l-211.98-56.04a221.838 221.838 0 0 0-125.12 3.45l-174.85 56.71a221.825 221.825 0 0 1-119.55 4.85l-185.29-43.88c-38.16-9.04-78.03-7.8-115.55 3.59L0 500.69v229.5Z" fill="%23288D70"></path><path d="m1300 390.57-11.47-14.65c-2.29-2.93-6.99-1.02-6.59 2.67l3.81 35.62c.39 3.65-4.19 5.58-6.53 2.75l-23.6-28.49c-2.29-2.76-6.78-.98-6.54 2.61l2.73 41.14c.24 3.67-4.43 5.41-6.65 2.47l-18.12-24.04c-2.21-2.94-6.89-1.2-6.65 2.47l1.88 28.3c.24 3.58-4.25 5.37-6.54 2.61l-14.86-17.94c-2.2-2.65-6.51-1.13-6.55 2.32l-.38 36.4c-.04 3.5-4.46 5-6.61 2.24l-15.86-20.26c-2.07-2.64-6.31-1.39-6.6 1.96l-2.36 27.02c-.3 3.42-4.69 4.62-6.69 1.83l-25.85-36.04c-2.12-2.96-6.79-1.4-6.71 2.24l.96 41.38c.08 3.45-4.19 5.12-6.47 2.54l-13.28-15.03c-2.21-2.5-6.33-1.03-6.47 2.3l-1.06 25.3c-.15 3.56-4.74 4.87-6.75 1.93-7.55-11.05-15.1-22.11-22.65-33.16-2.06-3.02-6.79-1.53-6.76 2.13.15 14.21.29 28.41.44 42.62 32.8 1.56 65.74-4.17 96.38-17.03L1300.02 437v-46.44l-.02.01ZM198.26 471.8l109.38 25.91-18.72-49.99c-1.03-2.84-4.99-3.02-6.28-.28l-9.47 20.15c-1.42 3.02-5.88 2.41-6.44-.88l-6.81-40.31c-.56-3.32-5.08-3.9-6.46-.83a34402.7 34402.7 0 0 0-15.11 33.7c-1.34 2.99-5.71 2.54-6.43-.65l-5.07-22.73c-.67-2.99-4.64-3.65-6.23-1.03l-9.58 15.77c-1.65 2.71-5.78 1.89-6.27-1.24l-5.86-37.61c-.52-3.31-5-3.96-6.44-.94l-17.54 36.82c-1.36 2.85-5.53 2.48-6.36-.57l-6.53-24.07c-.81-2.98-4.85-3.43-6.29-.7l-11.07 20.92c-1.5 2.84-5.75 2.21-6.35-.95l-6.26-32.88c-.59-3.11-4.75-3.8-6.31-1.04l-10.53 18.65c-1.62 2.88-5.98 1.99-6.35-1.3l-2.9-25.92c-.38-3.36-4.89-4.18-6.42-1.16l-12.5 24.7c-1.53 3.02-6.04 2.2-6.42-1.16l-4.22-37.69c-.37-3.28-4.72-4.17-6.35-1.29l-16.73 29.62c-1.66 2.94-6.12 1.93-6.36-1.43l-2.34-32.86c-.24-3.41-4.8-4.37-6.4-1.35l-9.1 17.21c-1.55 2.93-5.94 2.14-6.38-1.14l-3.69-27.62c-.41-3.08-4.4-4.04-6.17-1.49L-.02 382.79v117.72l82.71-25.11a221.782 221.782 0 0 1 115.55-3.59l.02-.01Z" fill="%2300735C"></path><path d="M293.32 685.57c-55.57-19.92-69.85 10.69-116.4-6.61-52.06-19.34-55.82-65.66-117.56-89.25-24.29-9.28-45.39-10.4-59.36-9.92v150.4h362c-14.45-14.11-37.74-33.53-68.68-44.62ZM1020.15 730.19H1300V516.24c-3.45 2.15-6.94 4.5-10.45 7.05-69.66 50.68-60.1 119.33-119 161.26-52.68 37.49-79.89-3.48-142.99 40.22-2.53 1.75-5 3.57-7.41 5.42Z" fill="%2302614E"></path><path d="m1241.9 467.47 10-10.27-94.32 39.59a221.775 221.775 0 0 1-142.54 9.92l-73.71-19.49 31.49 18.02c87.81 50.24 198.49 34.71 269.07-37.78l.01.01ZM163.05 486.59l95.91 55.47c70.82 40.96 158.45 39.61 227.97-3.52l75.92-47.09-59.75 19.38a221.825 221.825 0 0 1-119.55 4.85L198.26 471.8a221.781 221.781 0 0 0-108.33 1.54c25.15-4.18 51 .47 73.12 13.26v-.01Z" fill="%23409980"></path><path opacity=".2" d="M1300 0H0v730h1300V0Z" fill="%23fff"></path><path d="m899.84 730-67.57-318-84-412h-252l-68 340-11.94 390h483.51Z" fill="%23D2D5D9"></path><path opacity=".5" d="m623.18 507.52 5.88 5.39a440.16 440.16 0 0 0 173.77 98l125.46 36.73L911.52 662l-104.31-28.93A440.106 440.106 0 0 1 612.3 518.83c-5.25-5.3-.85-14.25 6.55-13.32 1.62.2 3.13.9 4.33 2v.01Z" fill="%23fff"></path><path d="m1146.93 393.49-60.89-138.61c-.62 1.3-1.38 2.55-2.29 3.72l-10.7 13.76a159.976 159.976 0 0 1-96.36 58.94l-11.82 2.25c-1.84.35-3.69.43-5.5.27l42.43 69.34a9.99 9.99 0 0 1-1.58 12.41L894.93 517.23a9.994 9.994 0 0 0-2.26 11.1l11.86 27.95a230.023 230.023 0 0 0 35.62 58.11l13.13 15.63c3.66 4.35 10.21 4.79 14.4.95l159.97-146.26c25.3-23.14 33.05-59.82 19.26-91.22h.02Z" fill="%23D2D5D9"></path><path d="m748.23 62.75-4.52-22.15c-38.73 31.99-88.4 51.21-142.56 51.21-39.85 0-77.27-10.42-109.69-28.67l-4.15 20.74C521.3 101.83 560.04 112 601.15 112c55.23 0 106.16-18.34 147.07-49.25h.01Z" fill="%23B6BABF"></path><path opacity=".5" d="M736.47 5.1 735.43 0h-17.71c-31.07 27.42-71.87 44.07-116.57 44.07-37.01 0-71.34-11.41-99.7-30.9l-3.5 17.5c29.84 18.95 65.23 29.93 103.2 29.93 52.73 0 100.51-21.18 135.32-55.49V5.1Z" fill="%23fff"></path><path d="M501.46 13.17c28.36 19.49 62.69 30.9 99.7 30.9 44.69 0 85.49-16.65 116.57-44.07H504.09l-2.63 13.17Z" fill="%23E8BE9E"></path><path d="M501.46 13.17a175.538 175.538 0 0 0 53.4 24.75 50.547 50.547 0 0 1-5.21-10.49L539.81 0h-35.72l-2.63 13.17ZM658.63 34.47a176.117 176.117 0 0 0 50.21-27.12L707.37 0h-35.72l-13.02 34.47Z" fill="%23D4AD90"></path><path d="m1146.93 393.49-52.94-120.52-7.95-18.09c-.62 1.3-1.38 2.55-2.29 3.72l-10.7 13.76c-1.45 1.87-2.94 3.7-4.47 5.49a160.016 160.016 0 0 1-91.88 53.45l-11.82 2.25c-1.84.35-3.69.43-5.5.27l11.04 18.03c.82-.05 1.64-.14 2.46-.3l11.82-2.25a159.976 159.976 0 0 0 69.35-31.71c12.02-9.51 29.81-4.98 35.98 9.05l32.56 74.13c10.37 23.6 4.54 51.18-14.48 68.58L944.21 619.2l9.09 10.82c3.66 4.35 10.21 4.79 14.4.95l159.97-146.26c25.3-23.14 33.05-59.82 19.26-91.22Z" fill="%23B6BABF"></path><path d="m304.14 305.27-18.77 216.1a79.996 79.996 0 0 0 37.89 75.12l89.17 54.67 60.62-75.98-13.95-236.61-154.96-33.29v-.01Z" fill="%23D2D5D9"></path><path d="m746 694.03-17.19 4.46a135.827 135.827 0 0 1-43.11 4.06l-3.41-.23a135.574 135.574 0 0 1-64.46-21.29c-4.34-2.79-8.78-5.65-13.03-8.39a601.648 601.648 0 0 1-39.9-28.04l-5.38-4.12c-6.52-4.99-7.54-14.39-2.23-20.64 4.52-5.34 12.25-6.66 18.31-3.14l4.34 2.52c9.57 5.56 19.52 10.45 29.85 14.45a278.19 278.19 0 0 0 95.06 18.72c12.28.24 15.11-17.02 3.41-20.73l-11.78-3.73a278.134 278.134 0 0 1-48.17-20.42l-58.63-31.67c-22.18-11.98-34.29-36.63-30.19-61.4l18.09-109.22c8.94-54 12.19-108.78 9.7-163.44l-2.2-48.21c-1.35-29.64-11.91-58.14-30.22-81.56a371.297 371.297 0 0 0-45.95 111.49l-38 163.87-16.63 179.6v163.04h394v-22a135.78 135.78 0 0 0-102.27-13.97l-.01-.01Z" fill="%23B6BABF"></path><path d="M1085.32 236.36 992.57 74.8a210.044 210.044 0 0 0-65.64-70.18L920 0H719.52l-23.06 53.11a56.515 56.515 0 0 1-16.88 21.9c-18.04 14.21-27.4 36.79-25.26 59.65l6.91 73.98c3.04 32.52 8.45 64.78 16.21 96.51L781.23 730h182.9l3.73-65.33c2.75-48.11-2.61-96.33-15.84-142.66l-73.61-257.63a10.5 10.5 0 0 1 6.5-12.75c4.58-1.68 9.71.19 12.46 4.21l47.26 69.32a20.006 20.006 0 0 0 20.27 8.38l11.82-2.25a159.976 159.976 0 0 0 96.36-58.94l10.7-13.76c4.98-6.41 5.6-15.19 1.56-22.24l-.02.01Z" fill="%234182C4"></path><path opacity=".5" d="m1039.64 392.57-8.71-14.23a20.012 20.012 0 0 0-21.69-9.02l-24.55 5.85 17.13 27.99a9.99 9.99 0 0 1-1.58 12.41l-61.63 59.51 7 24.51 91.68-88.52a14.89 14.89 0 0 0 2.36-18.5h-.01Z" fill="%23fff"></path><path d="M524.85 51.96 496.27 0h-44l-52.94 40.16a220.007 220.007 0 0 0-81.19 124.88l-18.45 78.42a660.038 660.038 0 0 0-15.42 98.24l-2.21 27.41c-.77 9.6 5.4 18.38 14.7 20.91l25.44 6.91c17.27 4.69 35.17 6.62 53.04 5.73l24.08-1.2c-.68 19.52-1.73 39.02-3.15 58.5l-19.76 270.05h124.15l64.85-439.54c4.56-30.93 6.85-62.15 6.85-93.42v-78.51c0-18.79-10.02-36.25-26.41-45.42a54.047 54.047 0 0 1-21.01-21.16h.01Z" fill="%234182C4"></path><path opacity=".5" d="m294.56 415.59-9.19 105.77c-2.06 23.68 6.52 46.67 22.77 63.13.04-.76.09-1.52.16-2.28l11.37-130.92c1.43-16.42-9.17-31.49-25.11-35.7Z" fill="%23fff"></path><path d="M524.85 51.96 496.27 0h-44L441.7 8.02h.03l11.29 21.25-4.82 72c-.58 8.16 8.34 13.53 15.27 9.19l25.81-16.13c11.3-7.07 26.43.45 26.97 13.76.02.37.02.75.01 1.13l-1.41 96.92a639.79 639.79 0 0 1-8.21 93.31L436.72 730h63.84l64.85-439.54c4.56-30.93 6.85-62.15 6.85-93.42v-83.89c0-16.59-9.6-31.48-24.41-38.97a54.091 54.091 0 0 1-23.01-22.22h.01Z" fill="%23336FB2"></path><path d="M548.27 117a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9 9 9 0 0 0 9 9ZM540.27 241a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9 9 9 0 0 0 9 9ZM524.27 381a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9 9 9 0 0 0 9 9ZM500.27 525a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9 9 9 0 0 0 9 9ZM480.27 677a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9 9 9 0 0 0 9 9Z" fill="%23fff"></path><path d="m448.94 101.58 76.79-48L512 0h-59.73l-6.17 1.95a9.992 9.992 0 0 0-6.97 8.87l-5.46 81.57c-.58 8.16 8.34 13.53 15.27 9.19Z" fill="%23549EE8"></path><path d="m398.52 401.49.81-.04c.62-17.84.94-35.69.94-53.54 0-52.89 9.12-105.38 26.96-155.16 3.63-10.14-9.67-17.73-16.53-9.42a220.063 220.063 0 0 0-44.56 89.73l-16.35 70.09a47.585 47.585 0 0 0 10.26 41.84 47.579 47.579 0 0 0 38.47 16.51v-.01Z" fill="%23336FB2"></path><path d="M399.33 40.16a220.007 220.007 0 0 0-81.19 124.88l-18.45 78.42a660.038 660.038 0 0 0-15.42 98.24l-2.21 27.41c-.77 9.6 5.4 18.38 14.7 20.91l9.08 2.47a19.958 19.958 0 0 1-3.78-13.37l2.21-27.41c2.66-33.09 7.82-65.93 15.42-98.24l18.45-78.42c9.5-40.36 30.16-77.01 59.34-105.92a65.137 65.137 0 0 0 17.08-29.45c1.22-4.53-4-8.04-7.74-5.2l-7.49 5.69v-.01ZM399.32 401.54c-.68 19.49-1.72 38.96-3.15 58.41L376.41 730h14.98l19.5-266.55c.66-9.02 1.24-18.04 1.75-27.07.73-12.99-4.1-25.68-13.32-34.85v.01Z" fill="%23549EE8"></path><path d="M1085.32 236.36 992.57 74.8a210.044 210.044 0 0 0-65.64-70.18L920 0h-49.17a256.46 256.46 0 0 1 79.63 85.34l113.25 197.28c.08.15.15.29.23.44 3.18-3.42 6.23-6.99 9.12-10.71l10.7-13.76c4.98-6.41 5.6-15.19 1.56-22.24v.01ZM753.61 107.91c11.29 5.67 24.24-3.87 22.17-16.33L761.01 0h-41.49l-23.06 53.11a56.425 56.425 0 0 1-13.71 19.2l70.87 35.6h-.01Z" fill="%23336FB2"></path><path d="M781.63 1.97c-.11-.68-.29-1.34-.53-1.97h-76.68l-8.74 54.88 84.55 42.47c7.64 3.83 16.4-2.62 15-11.05l-13.6-84.33Z" fill="%23549EE8"></path><path d="M952.56 524.02c-.06-.25-.12-.49-.19-.74l-.36-1.27-73.61-257.63a10.5 10.5 0 0 1 18.77-8.8l-37.78-55.23c-8.18-11.96-26.43-9.78-31.57 3.76l-5.71 15.04a173.053 173.053 0 0 0 5.38 135.4l69.04 145.89 10.19 25.77a455.383 455.383 0 0 1 31.52 148.69l2.27 55.09h23.6l3.73-65.33c2.71-47.41-2.47-94.93-15.29-140.65l.01.01Z" fill="%23336FB2"></path><path d="M696.55 313.15a669.332 669.332 0 0 1-16.21-96.51l-8.15-87.27c-1.02-10.89 2.01-21.44 8.06-30.07 5.02-7.15 2.69-17.05-5.11-20.97a.312.312 0 0 0-.31.02c-.02.01-.03.02-.05.03-14.78 9.77-23.25 26.65-21.6 44.3l8.03 85.96c3.04 32.52 8.45 64.78 16.21 96.51L781.21 730h17.17L696.54 313.15h.01Z" fill="%23549EE8"></path></g><defs><clipPath id="clip0_755_1426"><path fill="%23fff" d="M0 0h1300v730.19H0z"></path></clipPath></defs></svg>');
+     {% endif %}
+    background-repeat:no-repeat;background-size:cover;position: absolute; top: 0;border-radius:20px;}    
+    
+    .collection .product-grid:not(.slider) .card-wrapper.placeholder .card { display: block;  }
+.collection .product-grid:not(.slider) .card-wrapper.placeholder .card__media, 
+.collection .product-grid:not(.slider) .card-wrapper.placeholder .card .media {  position: relative; }
+.collection .product-grid:not(.slider) .card-wrapper.placeholder .media > *:not(.zoom):not(.deferred-media__poster-button) { position: relative; border-radius: 20px; border: 1px dashed var(--gradient-base-accent-2); transition: all .3s linear; }
+   
+  .deal-banner-product-tab .placeholder .card__inner { height: auto; }
+.placeholder .card__inner:not(.ratio)>.card__content { display: none; }
+.card-wrapper.placeholder { background: transparent; }
+
+.card-wrapper.placeholder .card__information .card__heading a {  font-size: calc(var(--font-heading-scale)* 2.2rem); }
+  
+  @media screen and (max-width: 480px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.25 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.25 | round: 0 }}px;
+    }
+  }
+  @media screen and (min-width: 1201px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  @media screen and (min-width:1200px) and (max-width: 1439px) {
+  .deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li{ min-width:80px;} }
+   @media screen and (min-width: 1440px) {
+  .deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li{ min-width:100px;} }
+  .deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li span{ color:var(--gradient-base-accent-1) !important; font-weight:500; }
+   /* .collection .swiper-pagination-progressbar.swiper-pagination-horizontal{bottom: -40px; top:unset;max-width: 1540px;margin: auto;left: 50%;transform: translateX(-50%);width: 100%;height: 3px;background: rgba(225, 225, 255, 0.1);}
+ .collection featured-swiper-slider{position: relative;}
+  .collection .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{top: 0;height: 3px;background: rgba(var(--color-foreground),1);} */
+
+  .collection featured-swiper-slider .swiper-pagination{width: 100%;margin:auto; height: 10px; background: rgba(var(--color-base-background-2)); margin-top: 34px; opacity: 1 !important;border-radius:10px;}
+  .collection featured-swiper-slider .swiper-scrollbar-drag{background: rgba(var(--color-base-outline-button-labels)); height: 10px;border-radius:10px;display:block;}
+
+   @media screen and (max-width: 576px) {
+     .collection featured-swiper-slider .swiper-pagination{margin-top:20px;height:6px;}
+     .collection featured-swiper-slider .swiper-scrollbar-drag{height:6px;}
+   }
+
+   .collection .grouped-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+   }
+   .collection .grouped-content .deal-banner {width: 50%;position:relative;}
+  .collection .grouped-content .grouped-content-wrapper{width:50%;}
+  
+
+
+  
+  .collection  .grouped-content .deal-banner .deal-banner__heading{ margin: 0;}
+  .collection .grouped-content .deal-banner .deal-banner-wrapper > * {text-align: center;color:var(--gradient-base-accent-1);}
+  .collection .grouped-content .deal-banner .deal-banner-wrapper .shop-now{padding-top:14px;}
+  .collection .grouped-content .deal-banner .deal-banner-wrapper{padding: 40px 90px;}
+  .collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;}
+  .collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter{margin-top:30px;}
+  .collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li{display:block;font-size:30px;line-height:normal;}
+  .collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li span{display:block;font-size:16px;font-family:var(--font-body-family);}
+
+.collection .title-wrapper--self-padded-mobile a.button.button--primary { display: none; }
+  
+/* custom css */
+
+.deal-banner-product-tab .card__inner{height:100%;}
+.collection.deal-banner-product-tab  .grouped-content .deal-banner .deal-banner__heading{font-size: 4.2rem;text-transform:capitalize; font-weight:500; letter-spacing:0; }
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li span{ color:var(--gradient-base-accent-1); }
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter{margin-top:30px;}
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li{font-size:80px;font-weight:400;text-transform:uppercase;font-family:var(--font-heading-family);position:relative;line-height:80px;}
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li span{display:block;text-transform:capitalize;color:rgba(var(--color-base-background-2), 0.6);line-height:normal;margin-top:20px;}
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li:not(:last-child):after{content:'';width:1px;height:55px;right:-42px;background:currentcolor;display:block;position:absolute;top:15px;}  
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul{gap:60px;}
+.deal-banner-product-tab.collection .grouped-content-wrapper .product-grid.contains-card{row-gap:40px;}
+
+.deal-banner-product-tab.collection .grouped-content .deal-banner {width: 48%;position:relative;}
+.deal-banner-product-tab.collection .grouped-content .grouped-content-wrapper{width: 52%;}
+@media screen and (max-width: 1540px) { 
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li{font-size:60px;line-height:60px;}  
+.collection .grouped-content .deal-banner .deal-banner-wrapper { padding: 50px 22px;} 
+.collection.deal-banner-product-tab .grouped-content .deal-banner .deal-banner__heading {font-size: 50px;}  
+.collection .grouped-content{gap:40px;}  
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul { gap: 40px;} 
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li:not(:last-child):after{right:-20px;height:40px;}  
+}
+
+@media screen and (max-width: 1439px){
+  .deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter {
+    margin-top: 13px;
+}
+}
+ @media screen and (max-width: 1199px){
+  #shopify-section-template--17275202797800__5baaa214-dc36-48c8-b807-dd5124b345c5 .color-background-1 .page-width{max-width:100%;}
+ } 
+@media screen and (max-width: 991px) {
+  .collection .grouped-content {flex-direction:column;}
+   .collection .grouped-content .deal-banner {width: 100%;}
+  .collection .grouped-content .grouped-content-wrapper{width:100%;}
+  .deal-banner-product-tab.collection .grouped-content .deal-banner {width: 100%;}
+  .deal-banner-product-tab.collection .grouped-content .grouped-content-wrapper{width: 100%;}
+  .deal-banner-product-tab.collection .grouped-content-wrapper .product-grid.contains-card {row-gap: var(--grid-desktop-vertical-spacing);}
+  .deal-banner-product-tab .row .grouped-content .grouped-content-wrapper .slider-mobile-gutter .product-grid .grid__item{
+    width: calc(50% - var(--grid-desktop-horizontal-spacing)* 2 / 3);
+    max-width: calc(50% - var(--grid-desktop-horizontal-spacing)* 2 / 3);
+}
+  .collection .grouped-content .deal-banner.deal--{{ section.id }}:after{    background-position: center;}
+}  
+
+@media screen and (max-width: 576px) {
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul { gap: 30px;} 
+  
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li{font-size:40px;line-height:normal;}
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li span{margin:0;}
+.collection .grouped-content .deal-banner .deal-banner-wrapper { padding: 30px;} 
+.collection.deal-banner-product-tab .grouped-content .deal-banner .deal-banner__heading {font-size: 30px;} 
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter { margin-top: 30px;}  
+.deal-banner-product-tab.collection .grouped-content .deal-banner{ background-color:rgb(255,255,255 , 0.5); border-radius: 20px;}
+}
+@media screen and (max-width: 450px) {  
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li{font-size:30px;}  
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul { gap: 20px;}   
+.deal-banner-product-tab.collection .grouped-content .deal-banner .deal-banner-wrapper .deals-counter .deal-clock ul li:not(:last-child):after{display:none;}
+
+}
+  @media screen and (max-width: 1199px) {
+  .deal-banner-product-tab.collection .grouped-content .deal-banner{ background-color:rgb(255,255,255 , 0.5); border-radius: 20px;}
+  }
+  @media screen and (min-width:990px) and (max-width: 1199px) {
+    .section-featured-collection .grid--3-col-desktop .grid__item {
+        width: calc(50% - var(--grid-desktop-horizontal-spacing)* 2 / 3);
+        max-width: calc(50% - var(--grid-desktop-horizontal-spacing)* 2 / 3);
+    }
+}
+/* .deal-banner-product-tab .row .grouped-content .grouped-content-wrapper featured-swiper-slider .swiper .swiper-wrapper{display:flex;flex-wrap: wrap;gap:20px;}
+.deal-banner-product-tab .row .grouped-content .grouped-content-wrapper featured-swiper-slider .swiper .swiper-wrapper .swiper-slide {flex-basis: 240px;} */
+{%- endstyle -%}
+
+{%- liquid
+  assign products_to_display = section.settings.collection.all_products_count
+
+  if section.settings.collection.all_products_count > section.settings.products_to_show
+    assign products_to_display = section.settings.products_to_show
+    assign more_in_collection = true
+  endif
+
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile and products_to_display > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+
+  assign show_desktop_slider = false
+  if section.settings.enable_desktop_slider and products_to_display > section.settings.columns_desktop
+    assign show_desktop_slider = true
+  endif
+
+  if section.settings.swiper_enable
+  assign enable_slider = true  
+  endif
+  
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="collection {% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %} {{ section.settings.custom_class_name }} section-{{ section.id }}-padding">
+   <div class="row">
+   {% if section.settings.enable_deal_banner %}<div class="grouped-content">{% endif %}
+  {% if section.settings.enable_deal_banner %}
+ 
+   
+  {% endif %} 
+      {% if section.settings.enable_deal_banner %}<div class="grouped-content-wrapper">{% endif %}
+    {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin content-align--{{ section.settings.column_alignment }}">
+         {%- if section.settings.sub_heading != blank -%}  
+         <h6 class="sub-heading">{{ section.settings.sub_heading | escape }}</h6>
+         {%- endif -%} 
+         {%- if section.settings.title != blank -%}  
+             <img class="featuredTitleImage" src="{{ section.settings.title }}" />
+         
+          {%- endif -%} 
+          {%- if section.settings.description != blank -%}  
+          <p class="description">{{ section.settings.description }}</p>
+          {%- endif -%}   
+          {%- if section.settings.button_label != blank -%}
+            <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">{{ section.settings.button_label | escape }}</a>
+          {%- endif -%} 
+          </div>
+    {%- endunless -%}
+ 
+    {% unless enable_slider %}
+    <slider-component class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}">
+    {% else %}
+    <featured-swiper-slider>
+      <div data-slider-options='{"loop": "{%- if section.settings.centered_slide -%}1{%- else -%}2{%- endif -%}","desktop": "{{ section.settings.desktop_column }}", "laptop": "{{ section.settings.laptop_column }}", "tablet": "{{ section.settings.tablet_column }}","mobile": "{{ section.settings.mobile_column }}","auto_play": "{{ section.settings.auto_play }}"}'>
+      <div class="swiper" data-swiper-slider>
+      {%- endunless -%}
+      <div id="Slider-{{ section.id }}" class="product-grid contains-card {% if enable_slider %} swiper-wrapper{% else %} grid grid--{{ section.settings.columns_desktop }}-col-desktop{% if section.settings.collection == blank %} grid--2-col-tablet-down{% else %} grid--{{ section.settings.columns_mobile }}-col-tablet-down{% endif %}{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}{% endif %}" role="list" aria-label="{{ 'sections.featured_collection.slider' | t }}">
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          <div id="Slide-{{ section.id }}-{{ forloop.index }}" class="{% if enable_slider %} swiper-slide{% else %} grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}{% endif %} card_style-{{ settings.card_style }}">
+          {%  case settings.card_style %}
+          {%  when 'standard' %}  
+            {% render 'card-product',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_secondary_image: section.settings.show_secondary_image,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_add: settings.enable_quickadd,
+              show_quick_view: settings.enable_quickview,
+              show_new_tag: section.settings.show_new_tag,
+              section_id: section.id
+            %}
+        {%  when 'button_width_icons' %}  
+             {% render 'card-product-2',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_secondary_image: section.settings.show_secondary_image,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_add: settings.enable_quickadd,
+              show_quick_view: settings.enable_quickview,
+              show_new_tag: section.settings.show_new_tag,
+              section_id: section.id
+            %}
+        {%  when 'card_with_icons' %} 
+             {% render 'card-product-3',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_secondary_image: section.settings.show_secondary_image,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_add: settings.enable_quickadd,
+              show_quick_view: settings.enable_quickview,
+              show_new_tag: section.settings.show_new_tag,
+              section_id: section.id
+            %}
+        {%  when 'card_with_buttons' %}  
+             {% render 'card-product-4',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_secondary_image: section.settings.show_secondary_image,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_add: settings.enable_quickadd,
+              show_quick_view: settings.enable_quickview,
+              show_new_tag: section.settings.show_new_tag,
+              section_id: section.id
+            %}
+        {%  when 'card_with_overlay' %}  
+             {% render 'card-product-5',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_secondary_image: section.settings.show_secondary_image,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_add: settings.enable_quickadd,
+              show_quick_view: settings.enable_quickview,
+              show_new_tag: section.settings.show_new_tag,
+              section_id: section.id
+            %}
+        {%  endcase %}
+          </div>
+        {%- else -%}
+         {%- for i in (1..section.settings.products_to_show) -%}
+             <div id="Slide-{{ section.id }}-{{ forloop.index }}" class="{% if enable_slider %} swiper-slide{% else %} grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}{% endif %} card_style-{{ settings.card_style }}">
+              {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+    {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
+              {% render 'card-product', show_vendor: section.settings.show_vendor, placeholder_image: placeholder_image %}
+            </div>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+      {% unless enable_slider %}
+      {%- if show_mobile_slider or show_desktop_slider -%}
+        {% if section.settings.arrow_on_mobile %}
+        <div class="slider-buttons no-js-hidden">
+          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+          <div class="slider-counter caption">
+          </div>
+          <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">{% render 'icon-caret' %}</button>
+        </div>
+      {% endif %}
+      {%- endif -%}
+    </slider-component>
+    {% else %}
+        {% if section.settings.swiper_navigation != blank %}
+        <div class="swiper-button-next"><span></span></div>
+        <div class="swiper-button-prev"><span></span></div>
+        {% endif %}
+    </div>
+    {% if section.settings.swiper_pagination != blank %}
+    <div class="swiper-pagination"></div>
+    {% endif %}
+    </div>
+    </featured-swiper-slider>
+    {%- endunless -%}
+     {% if section.settings.enable_deal_banner %}</div>{% endif %}
+ {% if section.settings.enable_deal_banner %}</div>{% endif %}
+    {%- if section.settings.show_view_all and more_in_collection -%}
+      <div class="center collection__view-all">
+        <a href="{{ section.settings.collection.url }}"
+          class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+          aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title }}"
+        >
+          {{ 'sections.featured_collection.view_all' | t }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.featured-collection.name",
+  "tag": "section",
+  "class": "section section-featured-collection",
+  "settings": [
+      {
+      "type":"checkbox",
+      "id":"page_full_width",
+       "default": false,
+      "label": "t:sections.all.page_full_width.label"
+    },
+    {
+      "type":"checkbox",
+      "id":"page_full_width_spacing",
+       "default": false,
+      "label": "t:sections.all.page_full_width_spacing.label"
+    },
+      {
+      "type": "text",
+      "id": "title",
+      "default": "Featured Collection",
+      "label": "t:sections.all.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "default":"Sub Heading",
+      "label": "t:sections.all.sub_heading.label"
+    },
+     {
+      "type": "text",
+      "id": "description",
+      "default":"Use this text to share the information which you like!.",
+      "label": "t:sections.all.description.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Button label",
+      "label": "t:sections.all.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.all.button_link.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary",
+      "default": false,
+      "label": "t:sections.all.button_style_secondary.label"
+      },
+    {
+      "type": "select",
+      "id": "column_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.featured-collection.settings.column_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.featured-collection.settings.column_alignment.options__2.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.featured-collection.settings.column_alignment.label"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured-collection.settings.collection.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 100,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.featured-collection.settings.products_to_show.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.featured-collection.settings.columns_desktop.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "t:sections.featured-collection.settings.show_view_all.label"
+    },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "t:sections.featured-collection.settings.view_all_style.label",
+      "options": [
+        {
+          "value": "link",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__1.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__2.label"
+        },
+        {
+          "value": "solid",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__3.label"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_new_tag",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_new_tag.label"
+    },    
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_rating.label",
+      "info": "t:sections.featured-collection.settings.show_rating.info"
+    },  
+      {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.deal_banner.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_deal_banner",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.enable_deal_banner.label"
+    }, 
+    {
+      "type":"image_picker",
+      "id":"deal_bg_image",
+      "label":"t:sections.featured-collection.settings.deal_bg_image.label",
+      "info": "Size Recommended: 600x1000"
+    },
+     {
+          "type": "text",
+          "id": "deal_banner_heading",
+          "label": "t:sections.featured-collection.settings.deal_banner_heading.label"
+    },
+    {
+          "type": "text",
+          "id": "deal_banner_text",
+          "label": "t:sections.featured-collection.settings.deal_banner_text.label"
+        },
+      {
+          "type": "text",
+          "id": "deal_end_date",
+          "label": "t:sections.deal-banner.settings.deal_end_date.label",
+          "info": "t:sections.deal-banner.settings.deal_end_date.info"
+      },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+    "type": "header",
+    "content": "t:sections.all.custom_class_heading.content"
+    },
+    {
+    "type": "select",
+    "id": "custom_class_name",
+    "label": "t:sections.all.custom_class_name.label",
+      "options":[
+        {
+          "value": "Default",
+          "label": "Default"
+        },
+        {
+          "value": "deal-banner-product-tab",
+          "label": "Custom Design"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.swiper.swiper_slider_title"
+    },
+    {
+      "type": "checkbox",
+      "id": "swiper_enable",
+      "default": false,
+      "label": "t:sections.all.swiper.swiper_slider_enable"
+    },
+    {
+      "type": "range",
+      "id": "desktop_column",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "t:sections.all.swiper.desktop_column",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "laptop_column",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "t:sections.all.swiper.laptop_column",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "tablet_column",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "t:sections.all.swiper.tablet_column",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_column",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "t:sections.all.swiper.mobile_column",
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "centered_slide",
+      "default": false,
+      "label": "t:sections.all.swiper.centered_slide"
+    },
+    {
+      "type": "checkbox",
+      "id": "swiper_pagination",
+      "default": false,
+      "label": "t:sections.all.swiper.swiper_pagination"
+    },
+    {
+      "type": "checkbox",
+      "id": "swiper_navigation",
+      "default": false,
+      "label": "t:sections.all.swiper.swiper_navigation"
+    },
+    {
+      "type": "range",
+      "id": "auto_play",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "label": "t:sections.all.swiper.auto_play",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "swipe_on_mobile",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "arrow_on_mobile",
+      "default": false,
+      "label": "t:sections.all.swiper.controls"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.all.swiper.options__1"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.all.swiper.options__2"
+        }
+      ],
+      "default": "1",
+      "label": "t:sections.all.swiper.columns_mobile"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection.presets.name"
+    }
+  ]
+}
+{% endschema %}

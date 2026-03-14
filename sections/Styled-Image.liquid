@@ -1,0 +1,70 @@
+{% style %}
+.custom-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-image-container {
+    padding: 0 0.5rem;
+  }
+  
+}
+{% endstyle %}
+
+<div class="custom-image-container">
+  <div class="background-rectangle"></div>
+  <div class="image-wrapper">
+    <div class="custom-outline"></div>
+    {% if section.settings.image %}
+      {{ section.settings.image | image_url: width: 1200 | image_tag: 
+        class: 'responsive-image',
+        loading: 'lazy',
+        alt: section.settings.image.alt | escape
+      }}
+    {% else %}
+      {{ 'image.jpg' | asset_img_url: '1200x' | image_tag: 
+        class: 'responsive-image',
+        loading: 'lazy'
+      }}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Image Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image Section",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

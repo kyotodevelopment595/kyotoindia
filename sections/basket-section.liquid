@@ -1,0 +1,219 @@
+{% schema %}
+{
+  "name": "Shopping Basket Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "What's your"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Highlighted Text",
+      "default": "new?"
+    },
+    {
+      "type": "text",
+      "id": "subtitle1",
+      "label": "Subtitle 1",
+      "default": "Discover our latest products"
+    },
+    {
+      "type": "text",
+      "id": "subtitle2",
+      "label": "Subtitle 2",
+      "default": "Shop the newest arrivals"
+    },
+    {
+      "type": "image_picker",
+      "id": "basket_image",
+      "label": "Basket Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Text Color",
+      "default": "#FF0000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shopping Basket"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.basket-section {
+  padding: 40px 20px;
+  {% if section.settings.background_image %}
+    background-image: url({{ section.settings.background_image | image_url }});
+    background-size: cover;
+    background-position: center;
+  {% endif %}
+}
+
+.basket-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.basket-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 30px; */
+}
+
+.text-wrapper {
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.main-heading {
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.highlight-text {
+  color: {{ section.settings.highlight_color }};
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+  margin: 5px 0;
+}
+
+.basket-image-wrapper {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.basket-image {
+  width: 100%;
+  height: auto;
+  /* border-radius: 12px; */
+  /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); */
+}
+
+/* Red corner accents */
+.basket-image-wrapper::before,
+.basket-image-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 3px solid {{ section.settings.highlight_color }};
+}
+
+.basket-image-wrapper::before {
+  top: -10px;
+  left: -10px;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 8px 0 0 0;
+}
+
+.basket-image-wrapper::after {
+  bottom: -10px;
+  right: -10px;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 8px 0;
+}
+
+@media screen and (max-width: 991px) {
+  .basket-section {
+    padding: 60px 20px;
+  }
+
+  .main-heading {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .basket-image-wrapper {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .basket-section {
+    padding: 40px 15px;
+  }
+
+  .main-heading {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .basket-image-wrapper::before,
+  .basket-image-wrapper::after {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .main-heading {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .basket-image-wrapper {
+    max-width: 100%;
+  }
+}
+</style>
+
+<div class="basket-section">
+  <div class="basket-container">
+    <div class="basket-content">
+      <div class="text-wrapper">
+        <h1 class="main-heading">
+          {{ section.settings.heading }} 
+          <span class="highlight-text">{{ section.settings.highlight_text }}</span>
+        </h1>
+        {% if section.settings.subtitle1 != blank %}
+          <p class="subtitle">{{ section.settings.subtitle1 }}</p>
+        {% endif %}
+        {% if section.settings.subtitle2 != blank %}
+          <p class="subtitle">{{ section.settings.subtitle2 }}</p>
+        {% endif %}
+      </div>
+      
+      <div class="basket-image-wrapper">
+        {% if section.settings.basket_image %}
+          {{ section.settings.basket_image | image_url: width: 800 | image_tag: 
+             class: 'basket-image',
+             alt: section.settings.heading,
+             loading: 'lazy' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

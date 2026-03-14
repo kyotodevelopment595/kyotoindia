@@ -1,0 +1,330 @@
+{% schema %}
+{
+  "name": "Design Philosophy",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "top_banner",
+      "label": "Top Banner Pattern"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_logo",
+      "label": "Main Logo/Heading Image"
+    },
+    {
+      "type": "richtext",
+      "id": "philosophy_text",
+      "label": "Philosophy Text",
+      "default": "<p>You know that feeling when everything just works? When your bag has exactly what you need, exactly where you expect it to be? That's what we chase at Kyoto.</p><p>Every product starts with real stories from real people, from parents rushing to daycare, professionals heading to meetings, to travelers exploring new cities.</p><p>We obsess over the small details because we know they make a big difference in your day. From the angle of a strap to the depth of a pocket, every decision serves a purpose.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_bg",
+      "label": "Our Story Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_heading_image",
+      "label": "Story Heading Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_content_bg",
+      "label": "Story Content Background"
+    },
+    {
+      "type": "richtext",
+      "id": "story_text",
+      "label": "Story Text",
+      "default": "<p>You know that feeling when everything just works? When your bag has exactly what you need, exactly where you expect it to be?</p><p>That's what we chase at Kyoto. Every product starts with real stories from real people, from parents rushing to daycare, professionals heading to meetings, to travelers exploring new cities.</p><p>We obsess over the small details because we know they make a big difference in your day. From the angle of a strap to the depth of a pocket, every decision serves a purpose.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "why_bg",
+      "label": "Why We Started Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "why_heading_image",
+      "label": "Why We Started Heading Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "why_content_bg",
+      "label": "Why Content Background"
+    },
+    {
+      "type": "richtext",
+      "id": "why_text",
+      "label": "Why Text",
+      "default": "<p>You know that feeling when everything just works? When your bag has exactly what you need, exactly where you expect it to be?</p><p>That's what we chase at Kyoto. Every product starts with real stories from real people, from parents rushing to daycare, professionals heading to meetings, to travelers exploring new cities.</p><p>We obsess over the small details because we know they make a big difference in your day. From the angle of a strap to the depth of a pocket, every decision serves a purpose.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Design Philosophy",
+      "category": "Custom Content"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .design-banner {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .design-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .philosophy-container {
+    text-align: center;
+    padding: 60px 0% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .main-logo {
+    margin-bottom: 30px;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .philosophy-text {
+    width: 70%;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 auto;
+  }
+  
+  .story-section {
+    padding:80px 0;
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .story-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    position: relative;
+    z-index: 2;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .story-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(255, 255, 255, 0.85); */
+    z-index: -1;
+  }
+  
+  .story-bg {
+    border-radius: 0 3rem 3rem 0;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .story-bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  .section-heading-image {
+    max-width: 60%;
+    margin-bottom: 30px;
+  }
+  
+  .section-text {
+    font-size: 18px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  
+  .why-section {
+     padding:40px 0 ;
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    flex-direction: row-reverse;
+  }
+  
+  .why-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    position: relative;
+    z-index: 2;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .why-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(255, 255, 255, 0.85); */
+    z-index: -1;
+  }
+  
+  .why-bg {
+    border-radius: 3rem 0 0 3rem;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .why-bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .philosophy-text {
+      width: 90%;
+    font-size: 16px;
+  }
+    .philosophy-container {
+      padding: 40px 15px 10px;
+    }
+    
+    .story-section,
+    .why-section {
+      padding:20px 0;
+      flex-direction: column;
+      height: auto;
+      min-height: 80vh;
+    }
+    
+    .story-content,
+    .why-content {
+      padding: 30px 15px;
+      min-height: 70vh;
+    }
+    
+    .story-bg,
+    .why-bg {
+      border-radius:0;
+      min-height: 60vh;
+    }
+    
+    .section-heading-image {
+      max-width: 80%;
+    }
+    
+    .section-text {
+      font-size:14px;
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .story-section,
+    .why-section {
+      height: auto;
+      min-height: 80vh;
+    }
+    
+    .section-heading-image {
+      max-width: 70%;
+    }
+    
+    .story-content,
+    .why-content {
+      padding: 40px 30px;
+    }
+  }
+</style>
+
+<div class="design-banner">
+  {% if section.settings.top_banner %}
+    {{ section.settings.top_banner | img_url: '2000x' | img_tag: 'Design Philosophy Banner' }}
+  {% else %}
+    <img src="{{ 'banner-pattern.png' | asset_url }}" alt="Design Philosophy Banner">
+  {% endif %}
+</div>
+
+<div class="philosophy-container">
+  {% if section.settings.main_logo %}
+    <img src="{{ section.settings.main_logo | img_url: '1000x' }}" alt="Design Philosophy" class="main-logo">
+  {% else %}
+    <img src="{{ 'design-philosophy-logo.png' | asset_url }}" alt="Design Philosophy" class="main-logo">
+  {% endif %}
+  <div class="philosophy-text">{{ section.settings.philosophy_text }}</div>
+</div>
+
+<div class="story-section">
+  <div class="story-bg">
+    {% if section.settings.story_bg %}
+      <img src="{{ section.settings.story_bg | img_url: '1000x' }}" alt="Our Story" class="story-bg-image">
+    {% else %}
+      <img src="{{ 'story-bg.png' | asset_url }}" alt="Our Story" class="story-bg-image">
+    {% endif %}
+  </div>
+  <div class="story-content" {% if section.settings.story_content_bg %}style="background-image: url({{ section.settings.story_content_bg | img_url: '1000x' }});"{% endif %}>
+    {% if section.settings.story_heading_image %}
+      <img src="{{ section.settings.story_heading_image | img_url: '500x' }}" alt="Our Story" class="section-heading-image">
+    {% else %}
+      <img src="{{ 'our-story-heading.png' | asset_url }}" alt="Our Story" class="section-heading-image">
+    {% endif %}
+    <div class="section-text">{{ section.settings.story_text }}</div>
+  </div>
+</div>
+
+<div class="why-section">
+  <div class="why-bg">
+    {% if section.settings.why_bg %}
+      <img src="{{ section.settings.why_bg | img_url: '1000x' }}" alt="Why We Started" class="why-bg-image">
+    {% else %}
+      <img src="{{ 'why-bg.png' | asset_url }}" alt="Why We Started" class="why-bg-image">
+    {% endif %}
+  </div>
+  <div class="why-content" {% if section.settings.why_content_bg %}style="background-image: url({{ section.settings.why_content_bg | img_url: '1000x' }});"{% endif %}>
+    {% if section.settings.why_heading_image %}
+      <img src="{{ section.settings.why_heading_image | img_url: '500x' }}" alt="Why We Started" class="section-heading-image">
+    {% else %}
+      <img src="{{ 'why-we-started-heading.png' | asset_url }}" alt="Why We Started" class="section-heading-image">
+    {% endif %}
+    <div class="section-text">{{ section.settings.why_text }}</div>
+  </div>
+</div>

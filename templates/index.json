@@ -1,0 +1,448 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_ik9MHy": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_rTxgT9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/kyoto_web_banner_.p.png",
+            "mobile_image": "shopify://shop_images/Artboard_4_copy_6.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_tQmzhk": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-03-11T222402.474.png",
+            "mobile_image": "shopify://shop_images/Banner_2.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_J6DJTg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-03-11T221737.689.png",
+            "mobile_image": "shopify://shop_images/Banner.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_tDzRL8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-03-11T222838.256.png",
+            "mobile_image": "shopify://shop_images/Banner_ccc6dee2-4559-4df5-ab6a-dd013a3d6714.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_rTxgT9",
+        "slide_tQmzhk",
+        "slide_J6DJTg",
+        "slide_tDzRL8"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "slider_image_height": 750,
+        "slider_image_height_laptop": 750,
+        "slider_image_height_tab": 500,
+        "slider_image_height_mobile": 400,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 2,
+        "slider_effect": "slide",
+        "show_text_below": true,
+        "custom_class_name": ""
+      }
+    },
+    "basket_section_qGBB78": {
+      "type": "basket-section",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "highlight_text": "",
+        "subtitle1": "",
+        "subtitle2": "",
+        "basket_image": "shopify://shop_images/Asset_2.png",
+        "highlight_color": "#ffffff"
+      }
+    },
+    "categoriescurved_LPPwgc": {
+      "type": "categoriescurved",
+      "blocks": {
+        "collection_VEqztG": {
+          "type": "collection",
+          "settings": {
+            "collection": "backpacks",
+            "image": "shopify://shop_images/Group_4.png",
+            "custom_link": ""
+          }
+        },
+        "collection_fhREfx": {
+          "type": "collection",
+          "settings": {
+            "collection": "babycare",
+            "image": "shopify://shop_images/Asset_1_1.png",
+            "custom_link": ""
+          }
+        },
+        "collection_AnPiVX": {
+          "type": "collection",
+          "settings": {
+            "collection": "stationery",
+            "image": "shopify://shop_images/Asset_1.png",
+            "custom_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_VEqztG",
+        "collection_fhREfx",
+        "collection_AnPiVX"
+      ],
+      "disabled": true,
+      "settings": {
+        "border_color": "#4b0082",
+        "circle_size": 200,
+        "heading": "Featured Collections",
+        "subtitle": "Browse our most popular collections",
+        "button_text": "Shop All",
+        "button_link": ""
+      }
+    },
+    "custom_liquid_4Xn8EK": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": true,
+        "column_alignment": "center",
+        "custom_liquid": "<div class=\"mainHomeContainer\" >\n\n<h3>Live Bold. Stay Organized </h3>\n<a href=\"https://kyotoindia.in/pages/home\">Start</a>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "styled_image_9tWg4B": {
+      "type": "Styled-Image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2025-02-12_113408.png"
+      }
+    },
+    "3_d_curve_4heR3a": {
+      "type": "3D-curve",
+      "disabled": true,
+      "settings": {
+        "collection": "stationery",
+        "circle_color": "#ffffff",
+        "heading": "",
+        "button_text": "Explore Full Collection",
+        "button_link": "shopify://collections/babycare"
+      }
+    },
+    "scrolling_part_6nJUCG": {
+      "type": "scrolling-part",
+      "blocks": {
+        "box_4Gwgpn": {
+          "type": "box",
+          "settings": {
+            "heading": "Tiny Smiles, Cute Style",
+            "description": "Safe, stylish, and soothing. Because even the smallest moments deserve beautiful design.",
+            "image": "shopify://shop_images/samkittoys_49543.jpg",
+            "link": "",
+            "bg_color": "#f3d5cd"
+          }
+        },
+        "box_4JwYGi": {
+          "type": "box",
+          "settings": {
+            "heading": "Small Details, Big Difference",
+            "description": "Pouches that bring method to the madness, one zipper at a time.",
+            "image": "shopify://shop_images/samkittoys_49631.jpg",
+            "link": "",
+            "bg_color": "#fd8484"
+          }
+        },
+        "box_CMLQqw": {
+          "type": "box",
+          "settings": {
+            "heading": "Stylish. Spacious. Travel-ready!",
+            "description": "Where minimalism meets maximum utility",
+            "image": "shopify://shop_images/samkit_toys_49690.jpg",
+            "link": "",
+            "bg_color": "#d6e9f1"
+          }
+        }
+      },
+      "block_order": [
+        "box_4Gwgpn",
+        "box_4JwYGi",
+        "box_CMLQqw"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "testimonial_slider_azBKEq": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "testimonial_GxapAt": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/1.png",
+            "title": "Sneha",
+            "content": "Obsessed with how light these bags are! \n\nStarted with one, now I have three. \nThe way everything just... fits? Pure magic. \nThese are definitely my everyday go-to now."
+          }
+        },
+        "testimonial_NYpbBj": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/2_b31f72fb-7b84-4f63-b7f3-14e54f418d29.png",
+            "title": "Ananya",
+            "content": "Not gonna lie, I picked this because it looked cute. Turns out, it’s also super practical. Love it!"
+          }
+        },
+        "testimonial_zcJrpT": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/3_5f5b52c4-89b8-4d2c-8368-6643e17142e2.png",
+            "title": "Priya",
+            "content": "Got this pouch for my kid, but I ended up stealing it. Holds everything without the mess—10/10."
+          }
+        },
+        "testimonial_HfbqNn": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/3_0268e7c4-6b0a-4a59-9eb3-16f2ef3eac7d.png",
+            "title": "Raj",
+            "content": "I bought this teether just to try, and now it’s the only one my baby wants. Total lifesaver!"
+          }
+        },
+        "testimonial_CKWxek": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/468056496_17983497053766135_8712045842023588253_n.jpg",
+            "title": "Arjun",
+            "content": "Took this on a work trip, and now I can’t use anything else. So light, so organized. Just makes life easier."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_GxapAt",
+        "testimonial_NYpbBj",
+        "testimonial_zcJrpT",
+        "testimonial_HfbqNn",
+        "testimonial_CKWxek"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "instagram_gallery_pGVtbQ": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "text_9iB4N7": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468396993_17983497299766135_6967576131576438456_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "",
+            "block_description": "Where style meets functionality! This sequined pouch isn’t just about looks, it’s your go-to for keeping all your stationery in one dazzling place. Get yours today!",
+            "block_button_link": "https://www.instagram.com/p/C_an4lqNn-k/",
+            "block_video": ""
+          }
+        },
+        "text_Yd8prG": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468498979_17983497071766135_1043025637443623942_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "Sub title",
+            "block_description": "A refreshing way to ease teething troubles, Kyoto’s watermelon-shaped teether offers a burst of playful comfort, turning tears into smiles with every soothing chew. Get yours today",
+            "block_button_link": "https://www.instagram.com/p/C-b2a7QofO1/",
+            "block_video": ""
+          }
+        },
+        "text_X6Ubfg": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468340219_17983497089766135_3045488755264514209_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "",
+            "block_description": "Perfectly plush, perfectly safe—combining the necessity for comfort and prioritizing the need for quality, Kyoto’s baby mattress provides the perfect combination to ensure your little ones sleep easy every night",
+            "block_button_link": "https://www.instagram.com/p/C-Uf-Outyxl/",
+            "block_video": ""
+          }
+        },
+        "text_9XTzXe": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468056496_17983497053766135_8712045842023588253_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "",
+            "block_description": "Easy grip for tiny hands, soft textures for sweet delight, Kyoto’s baby teethers are designed to be your baby’s new comfort toy. So irresistible, they won’t be able to keep their hands away! Order today!",
+            "block_button_link": "https://www.instagram.com/p/C9_59u2NGOP/",
+            "block_video": ""
+          }
+        },
+        "text_pnVMc8": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/468306040_17983495760766135_6932145591774450872_n.jpg",
+            "show_content": true,
+            "icon_class": true,
+            "block_sub_title": "",
+            "block_description": "Ease your baby’s teething discomfort with our colorful teether. Designed for their tiny hands, our teether is made from non-toxic, baby-friendly materials that ensure gentle chewing and maximum comfort. Keep your baby entertained while providing soothing relief. The perfect blend of fun and function for every teething stage. Get yours today! #kyotobabyteether #kyoto #babyteether",
+            "block_button_link": "https://www.instagram.com/p/C86NGIRS6Lt/",
+            "block_video": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_9iB4N7",
+        "text_Yd8prG",
+        "text_X6Ubfg",
+        "text_9XTzXe",
+        "text_pnVMc8"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {font-size: 45px;}"
+      ],
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "column_alignment": "center",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "overlay_height": 400,
+        "overlay_height_laptop": 300,
+        "overlay_height_tab": 300,
+        "overlay_height_mobile": 200,
+        "desktop_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 100,
+        "swiper_enable": true,
+        "desktop_column": 4,
+        "laptop_column": 4,
+        "tablet_column": 3,
+        "mobile_column": 1,
+        "centered_slide": false,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 0,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1",
+        "custom_class_name": ""
+      }
+    },
+    "floating_design_zRTqxb": {
+      "type": "floating-design",
+      "disabled": true,
+      "settings": {
+        "heading_line1": "Your",
+        "heading_line2": "simpler",
+        "heading_line3": "life starts",
+        "heading_line4": "here",
+        "circle_text": "",
+        "accent_color": "#ff0000",
+        "box_link_1": "",
+        "box_link_2": "shopify://pages/contact",
+        "box_link_3": "",
+        "box_link_4": ""
+      }
+    }
+  },
+  "order": [
+    "slideshow_ik9MHy",
+    "basket_section_qGBB78",
+    "categoriescurved_LPPwgc",
+    "custom_liquid_4Xn8EK",
+    "styled_image_9tWg4B",
+    "3_d_curve_4heR3a",
+    "scrolling_part_6nJUCG",
+    "testimonial_slider_azBKEq",
+    "instagram_gallery_pGVtbQ",
+    "floating_design_zRTqxb"
+  ]
+}

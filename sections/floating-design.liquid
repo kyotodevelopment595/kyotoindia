@@ -1,0 +1,327 @@
+{% schema %}
+{
+  "name": "Floating Design Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Don't"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Hesitate"
+    },
+    {
+      "type": "text",
+      "id": "heading_line3",
+      "label": "Heading Line 3",
+      "default": "to Reach"
+    },
+    {
+      "type": "text",
+      "id": "heading_line4",
+      "label": "Heading Line 4",
+      "default": "Out!"
+    },
+    {
+      "type": "text",
+      "id": "circle_text",
+      "label": "Circle Text",
+      "default": "Get in Touch!"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#ff0000"
+    },
+    {
+      "type": "url",
+      "id": "box_link_1",
+      "label": "Box 1 Link"
+    },
+    {
+      "type": "url",
+      "id": "box_link_2",
+      "label": "Box 2 Link"
+    },
+    {
+      "type": "url",
+      "id": "box_link_3",
+      "label": "Box 3 Link"
+    },
+    {
+      "type": "url",
+      "id": "box_link_4",
+      "label": "Box 4 Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Floating Design",
+      "category": "Interactive"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="floating-design-section">
+  <div class="content-wrapper">
+    <div class="floating-text-boxes">
+      <a href="https://kyotoindia.in/pages/backpacks" class="floating-box">Travel Collections</a>
+      <a href="https://kyotoindia.in/pages/about-us" class="floating-box">About Us</a>
+      <a href="https://kyotoindia.in/pages/contact" class="floating-box">Contact</a>
+      <a href="https://kyotoindia.in/pages/stationary" class="floating-box">Stationary</a>
+    </div>
+    <h1 class="main-heading">
+      {{ section.settings.heading_line1 }}<br>
+      {{ section.settings.heading_line2 }}<br>
+      {{ section.settings.heading_line3 }}<br>
+      {{ section.settings.heading_line4 }}
+    </h1>
+    
+    <div class="circle-container">
+      <div class="full-circle">
+        <div class="eyes-wrapper">
+          <div class="eyeball left-eye">
+            <div class="pupil"></div>
+          </div>
+          <div class="eyeball right-eye">
+            <div class="pupil"></div>
+          </div>
+        </div>
+        <div class="circle-text">{{ section.settings.circle_text }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+.floating-design-section {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  background-color: white;
+}
+
+.content-wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.floating-text-boxes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.floating-box {
+  position: absolute;
+  padding: 8px 16px;
+  background-color: {{ section.settings.accent_color }};
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  animation: float 15s infinite linear;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-box:hover {
+  transform: scale(1.1);
+  background-color: {{ section.settings.accent_color | color_modify: 'alpha', 0.8 }};
+}
+
+.floating-box:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.floating-box:nth-child(2) { top: 15%; right: 15%; animation-delay: -3s; }
+.floating-box:nth-child(3) { top: 25%; right: 25%; animation-delay: -6s; }
+.floating-box:nth-child(4) { top: 20%; left: 30%; animation-delay: -9s; }
+
+/* Rest of the CSS remains the same */
+.main-heading {
+  position: relative;
+  font-size: 8rem;
+  line-height: 1;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: -160px;
+  z-index: 2;
+}
+
+.circle-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.full-circle {
+  top: 5%;
+  width: 110%;
+  height: 900px;
+  background-color: {{ section.settings.accent_color }};
+  border-radius: 100%;
+  position: absolute;
+  bottom: -400px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.eyes-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.eyeball {
+  width: 90px;
+  height: 160px;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+}
+
+.pupil {
+  width: 35px;
+  height: 35px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+}
+
+.circle-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(20px, 20px) rotate(5deg); }
+  50% { transform: translate(0, 40px) rotate(0deg); }
+  75% { transform: translate(-20px, 20px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@media screen and (max-width: 768px) {
+  .floating-design-section{
+    height:50vh
+  }
+  /* Mobile styles remain the same */
+  .floating-text-boxes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+  }
+  .floating-box:nth-child(1) {
+    top: 5%;
+    left: 5%;
+  }
+  .floating-box:nth-child(2) {
+    top: 15%;
+    right: 10%;
+    animation-delay: -3s;
+  }
+  .floating-box:nth-child(3) {
+    top: 35%;
+    right: 15%;
+    animation-delay: -6s;
+  }
+  .floating-box:nth-child(4) {
+    top: 22%;
+    left: 20%;
+    animation-delay: -9s;
+  }
+  .main-heading {
+    top: 120px;
+    z-index: 3;
+    font-size: 3rem;
+    margin-bottom: -90px;
+  }
+  .circle-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+  .full-circle {
+    top: 50%;
+  
+    height: 430px;
+    bottom: -150px;
+  }
+  .eyes-wrapper {
+    width: 150px;
+    top: 25%;
+  }
+  .eyeball {
+    width: 60px;
+    height: 90px;
+  }
+  .pupil {
+    width: 20px;
+    height: 25px;
+  }
+  .circle-text {
+    font-size: 18px;
+    top: 45%;
+  }
+  .floating-box {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+{% endstyle %}
+
+{% javascript %}
+document.addEventListener('DOMContentLoaded', function() {
+  const pupils = document.querySelectorAll('.pupil');
+  const eyeballs = document.querySelectorAll('.eyeball');
+  
+  document.addEventListener('mousemove', function(e) {
+    eyeballs.forEach((eyeball, index) => {
+      const pupil = pupils[index];
+      const eyeRect = eyeball.getBoundingClientRect();
+      const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+      const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+      
+      // Calculate angle between mouse and eye center
+      const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+      
+      // Maximum distance the pupil can move from center (in pixels)
+      const maxDistance = 15;
+      
+      // Calculate new pupil position
+      const pupilX = Math.cos(angle) * maxDistance;
+      const pupilY = Math.sin(angle) * maxDistance;
+      
+      // Apply new position
+      pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
+    });
+  });
+});
+{% endjavascript %}
