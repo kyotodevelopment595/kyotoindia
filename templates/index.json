@@ -185,7 +185,7 @@
         "button_link": "",
         "button_style_secondary": true,
         "column_alignment": "center",
-        "custom_liquid": "<div class=\"mainHomeContainer\" >\n\n<h3>Live Bold. Stay Organized </h3>\n<a href=\"https://kyotoindia.in/pages/home\">Start</a>\n</div>",
+        "custom_liquid": "<div class=\"mainHomeContainer\">\n  <picture>\n    <source media=\"(max-width: 600px)\" srcset=\"https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Kyoto_Main_Mobile_Banner.gif?v=1741764196\">\n    <img class=\"bg-image\" src=\"https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Kyoto_Main_Web_Banner.gif?v=1741764199\" alt=\"Kyoto Main Banner\" loading=\"eager\">\n  </picture>\n  <h3>Live Bold. Stay Organized </h3>\n  <a href=\"https://kyotoindia.in/pages/home\">Start</a>\n</div>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0

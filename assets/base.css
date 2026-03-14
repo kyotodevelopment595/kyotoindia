@@ -72,14 +72,28 @@
 .mainHomeContainer {
   height: 100vh;
   width: 100vw;
-  background-image: url("https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Kyoto_Main_Web_Banner.gif?v=1741764199");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+}
+
+.mainHomeContainer img.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.mainHomeContainer h3,
+.mainHomeContainer a {
+  position: relative;
+  z-index: 1;
 }
 
 .mainHomeContainer a{
@@ -113,11 +127,6 @@
   .mainHomeContainer h3{
     font-size:1.5rem;
   }
-  .mainHomeContainer {
-
-  background-image: url("https://cdn.shopify.com/s/files/1/0924/0677/6122/files/Kyoto_Main_Mobile_Banner.gif?v=1741764196");
-
-}
 }
 
 /* Preloader animation */
