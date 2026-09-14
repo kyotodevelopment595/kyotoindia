@@ -243,7 +243,7 @@
         {%- unless section.settings.sidebar_settings == 'no-sidebar' -%}
           <button class="toggleFilter"> {% render 'icon-filter' %} Filter</button>
           <aside>
-            {% render 'main-product-sidebar', show_sticky: section.settings.enable_sticky_info, section: section: block: block %}
+            {% render 'main-product-sidebar', show_sticky: section.settings.enable_sticky_info, section: section, block: block %}
           </aside>
         {%- endunless -%}
         <div class="main-product_info product  product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }}  {%  if thumb_carousel_layout %}{% if thumb_slick_layout %} media-slick-slider{% endif %} product--{{ section.settings.thumb_carousel_layout }}{% endif %} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %} ">
@@ -3304,3 +3304,15 @@
   ]
   }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'main-product-sidebar', show_sticky: section.settings.enable_sticky_info,
+    section: section: block: block %}"
+  to: "{% render 'main-product-sidebar', show_sticky: section.settings.enable_sticky_info,
+    section: section, block: block %}"
+  position: 13918..14035
+{% endcomment %}
